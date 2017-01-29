@@ -217,12 +217,12 @@ footer ul {
     overflow: hidden;
     padding-top: 150px;
     color: rgba(255, 255, 255, 1);
-    background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
     background: rgba(0, 200, 200, 0.5); /* homeVideo6HD */
-    background: rgba(100, 200, 0, 0.45); /* homeVideoB */
     background: rgba(0, 0, 100, 0.4); /* homeVideo9HD */
     background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
-    background: rgba(40, 100, 0, 0.5); /* homeVideoA */
+    background: rgba(50, 100, 50, 0.5); /* homeVideoA */
+    background: rgba(30, 100, 30, 0.7); /* homeVideoB */
+    background: rgba(0, 0, 0, 0.3); /* homeVideoC */
 	border-bottom: 2px solid #a6da0b;
 }
 .banner video {

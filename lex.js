@@ -18,10 +18,11 @@ app.config(['$routeProvider', function ($routeProvider) {
     // Home
     .when("/", {templateUrl: "partials/home.html", controller: "PageCtrl"})
     // Pages
-    .when("/about", {templateUrl: "partials/about.html", controller: "PageCtrl"})
-    .when("/faq", {templateUrl: "partials/faq.html", controller: "PageCtrl"})
-    .when("/pricing", {templateUrl: "partials/pricing.html", controller: "PageCtrl"})
-    .when("/services", {templateUrl: "partials/services.html", controller: "PageCtrl"})
+    .when("/practice_areas", {templateUrl: "partials/practice_areas.html", controller: "PageCtrl"})
+    .when("/our_team", {templateUrl: "partials/our_team.html", controller: "PageCtrl"})
+    .when("/links_events", {templateUrl: "partials/links_events.html", controller: "PageCtrl"})
+    .when("/practice_areas", {templateUrl: "partials/practice_areas.html", controller: "PageCtrl"})
+    .when("/the_firm", {templateUrl: "partials/the_firm.html", controller: "PageCtrl"})
     .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
     // Blog
     .when("/blog", {templateUrl: "partials/blog.html", controller: "BlogCtrl"})
@@ -57,6 +58,7 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 $(window).on('scroll', function(){
     var slideHeight = $('.banner').outerHeight();
     var slideHeight = slideHeight - ($('.nav').outerHeight());
+    var slideHeight = ('50');
 	if( $(window).scrollTop()>slideHeight){
 		$('.navbar').addClass('scrolled');
 	} else {

@@ -16,6 +16,13 @@ div[class^='col'] h3, div[class*='col'] h3 {
 }
 */
 
+/* --- _COLORS
+#ace600; real lime
+#94c20a; lit bit darker lime for logo
+#00b386; blue green used for default heading color
+#394d00; very dark text green
+#264039; dark green highlight background
+*/
 
 /* --- _SECTIONS ---------------------------- */
 
@@ -92,16 +99,19 @@ ul.native li {
 	color: #ffd966; /* orange */
 }
 .highlighted img {
-	border-bottom: 1px solid rgba(255, 217, 102, 0.8); /* orange */
+	border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px 5px 0 0;
 }
 
 /* -- _BRAND --------------------------------------------- */
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
-    background: #ace600;
     background: #94c20a;
-    font-weight: bold;
+    font-weight: 600;
     color: White;
+}
+.navbar-inverse .navbar-brand:hover {
+    background: #739900;
 }
 
 /* -- _NAVIGATION INHERIT -------------------------------- */
@@ -195,15 +205,57 @@ footer ul {
 
 /*-- _BANNER ----------------------------------- */
 
-header {
-}
 .banner {
     position: relative;
     overflow: hidden;
     padding-top: 150px;
     color: rgba(255, 255, 255, 1);
     background: rgba(40, 50, 0, 0.6);
+	border-bottom: 2px solid #a6da0b;
 }
+.banner.the_firm, .banner.practice_areas, .banner.our_team, .banner.links_events, .banner.contact {
+    padding-top: 200px;
+    background-repeat: no-repeat left -100px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.banner h1 {
+    margin-bottom: 10px;
+}
+.banner.the_firm {
+    background-image: url("images/BG-the_firm.jpg");
+    background-position: center -100px;
+}
+.banner.the_firm h1 {
+}
+.banner.practice_areas {
+    background-image: url("images/BG-practice_areas.png");
+    background-position: center -200px;
+}
+.banner.our_team {
+    background-image: url("images/BG-our_team2.jpeg");
+    background-position: center -100px;
+}
+.banner.links_events {
+    background-image: url("images/BG-links_events.jpeg");
+    background-position: right top;
+}
+.banner.contact h1 {
+    text-align: right;
+}
+.banner.contact {
+    background-image: url("images/BG-contact.jpg");
+    background-position: left top;
+}
+
+/*
+.banner.the_firm .shade {
+    background: rgba(111, 145, 8, 0.5);
+    text-shadow: 1px 1px black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+*/
 .banner video {
     position: absolute;
     top: 50%;
@@ -218,6 +270,27 @@ header {
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .img-home-portfolio,
 .img-customer,
 .portfolio-item {
@@ -364,8 +437,11 @@ header {
     body {
         font-size: 19px;
     }
-    h1 {
-    	font-size: 65px;
+    .banner h1 {
+    	font-size: 80px;
+    }
+    .banner .large {
+        font-size: 34px;
     }
     h2 {
     	font-size: 36px;
@@ -394,11 +470,18 @@ header {
         font-size: 19px;
     }
 
+
 }
 /* LARGE Devices, Wide Screens */
 @media only screen and (min-width : 1201px) {
-    h1 {
-    	font-size: 75px;
+    .banner h1 {
+    	font-size: 100px;
+    }
+    .banner.home h1 {
+    	font-size: 60px;
+    }
+    .banner .large {
+        font-size: 40px;
     }
 }
 

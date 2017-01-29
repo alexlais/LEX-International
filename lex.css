@@ -18,6 +18,7 @@ div[class^='col'] h3, div[class*='col'] h3 {
 
 /* --- _COLORS
 #ace600; real lime
+#a6da0b; link hover
 #94c20a; lit bit darker lime for logo
 #00b386; blue green used for default heading color
 #394d00; very dark text green
@@ -46,34 +47,54 @@ section, .banner, div[class^='col'], div[class*='col'] {
     padding-top: 2em;
 }
 
-/*-- _HEADINGS and COPY -------------------------------------------- */
+/*-- _LINKS ---------------------------------------------------- */
 
+a {
+    color: inherit;
+}
 a:hover {
     text-decoration: none;
 }
 p a, p a:hover {
     color: inherit;
-    border-bottom: 2px dotted #888;
+    border-bottom: 2px dotted #a6da0b;
 }
 p a:hover {
     border-bottom: 0;
     color: #a6da0b
 }
-p {
-    line-height: 1.5;
+/* -- LINK COLOR -----------------------------------------------------  */
+
+/* nav no scrooled color */
+.navbar, .navbar .navbar-nav > li > a {
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
 }
+/* nav scrooled color */
+.navbar.scrolled, .scrolled.navbar .navbar-nav > li > a, footer a {
+    color: #009973;
+    text-shadow: none;
+}
+/* nav hover color */
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar-nav .dropdown:hover > a, .navbar-nav .dropdown a:hover,
+.navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus,
+footer a:hover  {
+    color: #ace600;
+}
+
+/*-- _HEADINGS and COPY -------------------------------------------- */
+
 h1, h2, h3 {
 	color: #00b386;
     font-weight: 200;
     margin: 0 0 20px;
 }
-
 .banner h1 {
 	color: white;
 }
-
-
-
+p {
+    line-height: 1.5;
+}
 ul.native {
     padding-left: 0;
     list-style: none;
@@ -103,20 +124,21 @@ ul.native li {
     border-radius: 5px 5px 0 0;
 }
 
-/* -- _BRAND --------------------------------------------- */
+/* -- _BRAND _LOGO --------------------------------------------- */
 
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+.navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover {
     background: #94c20a;
     font-weight: 600;
     color: White;
+    text-shadow: none;
 }
-.navbar-inverse .navbar-brand:hover {
+.navbar .navbar-brand:hover {
     background: #739900;
 }
 
-/* -- _NAVIGATION INHERIT -------------------------------- */
+/* -- _NAVIGATION INHERIT ---------------------0--------------- */
 
-.navbar-inverse .navbar-nav > li > a:focus {
+.navbar .navbar-nav > li > a:focus {
     color: inherit;
 }
 .dropdown-menu > li > a, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
@@ -124,16 +146,18 @@ ul.native li {
     color: inherit;
     background: inherit;
 }
+.navbar .navbar-nav > li > a, .navbar-nav > li > a {
+    text-shadow: inherit;
+}
 
 /*-- _NAVIGATION --------------------------------------- */
 
 .navbar {
     border: 0;
-    box-shadow: none;
     background: transparent;
     font-weight: bold;
-    transition-duration: 1s;
     background-position: center bottom;
+    box-shadow: none;
     transition-duration: 1s;
 }
 .navbar.scrolled {
@@ -142,22 +166,9 @@ ul.native li {
     background-size: cover;
     background: rgba(255,255,255,0.95);
     box-shadow: 0 0 6px 6px rgba(0,0,0,.3);
+    text-shadow: 0;
 }
-/* nav no scrooled color */
-.navbar, .navbar-inverse .navbar-nav > li > a {
-    color: white;
-}
-/* nav scrooled color */
-.navbar.scrolled, .scrolled.navbar-inverse .navbar-nav > li > a, footer a {
-    color: #009973;
-}
-/* nav hover color */
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus, .navbar-nav .dropdown:hover > a, .navbar-nav .dropdown a:hover,
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus,
-footer a:hover  {
-    color: #ace600;
-}
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+.nav > li > a:hover, .nav > li > a:focus, .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
     background: inherit;
 }
 /*
@@ -194,10 +205,6 @@ footer {
     box-shadow: 0 0 6px 6px rgba(0,0,0,.3);
     color: gray;
 }
-footer .contact .larger span {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 6px;
-}
 
 footer ul {
     font-weight: bold;
@@ -210,52 +217,14 @@ footer ul {
     overflow: hidden;
     padding-top: 150px;
     color: rgba(255, 255, 255, 1);
-    background: rgba(40, 50, 0, 0.6);
+    background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
+    background: rgba(0, 200, 200, 0.5); /* homeVideo6HD */
+    background: rgba(100, 200, 0, 0.45); /* homeVideoB */
+    background: rgba(0, 0, 100, 0.4); /* homeVideo9HD */
+    background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
+    background: rgba(40, 100, 0, 0.5); /* homeVideoA */
 	border-bottom: 2px solid #a6da0b;
 }
-.banner.the_firm, .banner.practice_areas, .banner.our_team, .banner.links_events, .banner.contact {
-    padding-top: 200px;
-    background-repeat: no-repeat left -100px;
-    background-size: cover;
-    background-attachment: fixed;
-}
-.banner h1 {
-    margin-bottom: 10px;
-}
-.banner.the_firm {
-    background-image: url("images/BG-the_firm.jpg");
-    background-position: center -100px;
-}
-.banner.the_firm h1 {
-}
-.banner.practice_areas {
-    background-image: url("images/BG-practice_areas.png");
-    background-position: center -200px;
-}
-.banner.our_team {
-    background-image: url("images/BG-our_team2.jpeg");
-    background-position: center -100px;
-}
-.banner.links_events {
-    background-image: url("images/BG-links_events.jpeg");
-    background-position: right top;
-}
-.banner.contact h1 {
-    text-align: right;
-}
-.banner.contact {
-    background-image: url("images/BG-contact.jpg");
-    background-position: left top;
-}
-
-/*
-.banner.the_firm .shade {
-    background: rgba(111, 145, 8, 0.5);
-    text-shadow: 1px 1px black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-*/
 .banner video {
     position: absolute;
     top: 50%;
@@ -271,6 +240,56 @@ footer ul {
     background-size: cover;
 }
 
+.banner.the_firm, .banner.practice_areas, .banner.our_team, .banner.links_events, .banner.contact {
+    background-repeat: no-repeat left -100px;
+    background-size: 100% 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 200px;
+}
+.banner h1, .banner p {
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+.banner p.large {
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+.banner.the_firm {
+    background-image: url("images/BG-the_firm.jpg");
+    background-position: center top;
+    text-shadow: 0 0 2px rgba(0,0,0,1);
+    font-weight: bold;
+}
+.banner.the_firm h1 {
+    text-shadow: none;
+}
+.banner.practice_areas {
+    background-image: url("images/BG-practice_areas.png");
+    background-position: center -200px;
+}
+.banner.our_team {
+    background-image: url("images/BG-our_team2.jpeg");
+    background-position: center -100px;
+}
+.banner.links_events {
+    background-image: url("images/BG-links_events.jpeg");
+    background-position: right -50px;
+    padding-bottom: 4em;
+}
+.banner.contact {
+    background-image: url("images/BG-contact.jpg");
+    background-position: right center;
+}
+
+/*
+.banner.the_firm .shade {
+    background: rgba(111, 145, 8, 0.5);
+    text-shadow: 1px 1px black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+*/
 
 
 
@@ -394,7 +413,7 @@ footer ul {
 
 /* ------------------------------------------------------------------ */
 
-/* MIN MEDIUM = Desktops */
+/* MEDIUM or larger = Desktops */
 @media only screen and (min-width: 769px) {
     img + h3 {
         margin-top: 20px;
@@ -423,12 +442,20 @@ footer ul {
     ul.native li {
         background-size: 12px 12px;
     }
+    footer {
+        font-size: 16px;
+    }
     footer .contact .larger span {
-        font-size: 17px;
+        font-size: 18px;
+        border-bottom: 2px dotted gray;
+        padding-bottom: 4px;
+        margin-bottom: 10px;
+        font-weight: 300;
+        color: Black;
     }
 }
 
-/* MIN LARGE  */
+/* LARGE or larger */
 @media only screen and (min-width : 993px) {
     /* Make Navigation Toggle on Desktop Hover */
     .dropdown:hover .dropdown-menu {
@@ -438,7 +465,7 @@ footer ul {
         font-size: 19px;
     }
     .banner h1 {
-    	font-size: 80px;
+    	font-size: 90px;
     }
     .banner .large {
         font-size: 34px;
@@ -463,25 +490,28 @@ footer ul {
     footer .copyright {
         font-size: 14px;
     }
-    footer .contact {
-        font-size: 17px;
+    footer ul li {
+        display: inline;
+        border-left: 2px dotted #009973;
+        padding-left: 12px;
+        margin-left: 8px;
     }
-    footer .contact .larger span {
-        font-size: 19px;
+    footer ul li:first-child {
+        border-left: 0;
+        padding-left: 0;
+        margin-left: 0;
     }
-
-
 }
 /* LARGE Devices, Wide Screens */
 @media only screen and (min-width : 1201px) {
     .banner h1 {
-    	font-size: 100px;
+    	font-size: 90px;
     }
     .banner.home h1 {
     	font-size: 60px;
     }
     .banner .large {
-        font-size: 40px;
+        font-size: 37px;
     }
 }
 

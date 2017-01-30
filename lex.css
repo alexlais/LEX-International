@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Changa:200|Work+Sans:300|Kanit:100|Titillium+Web:200');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300|Kanit:100|Titillium+Web:200');
 body {
     font-family: "Work Sans", Helvetica, Arial, sans-serif;
 }
@@ -170,7 +170,6 @@ ul.native li {
     font-weight: normal;
 }
 
-
 /*-- _WHITE ----------------------------------- */
 
 
@@ -194,6 +193,7 @@ footer {
     background: rgba(50, 100, 50, 0.5); /* homeVideoA */
     background: rgba(30, 100, 30, 0.7); /* homeVideoB */
     background: rgba(0, 0, 0, 0.3); /* homeVideoC */
+    background: transparent;
 	border-bottom: 4px solid #ace600;
 }
 .banner video {
@@ -216,14 +216,13 @@ footer {
     background-size: 100% 100%;
     background-size: cover;
     background-attachment: fixed;
-    /* text-shadow: 0 0 2px rgba(0,0,0,1); */
 }
 .banner h1, .banner p {
     margin-bottom: 10px;
     line-height: 1.3;
 }
-.banner p.large {
-    margin-bottom: 10px;
+.banner p {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 .banner.the_firm {
     background-image: url("images/BG-the_firm.jpg");
@@ -435,7 +434,7 @@ footer {
         color: #ace600;
     }
     .noscroll .navbar-collapse a {
-        text-shadow: 2px 2px 0 rgba(0,0,0,0);
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     }
     ul.native li {
         background-size: 12px 12px;
@@ -570,7 +569,7 @@ footer {
         font-size: 33px;
     }
     .banner .large {
-        font-size: 43px;
+        font-size: 41px;
     }
     footer nav ul li {
         font-size: 22px;

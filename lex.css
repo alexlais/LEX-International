@@ -1,9 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Changa:200|Work+Sans:300|Titillium+Web:200');
+@import url('https://fonts.googleapis.com/css?family=Changa:200|Work+Sans:300|Kanit:100|Titillium+Web:200');
 body {
     font-family: "Work Sans", Helvetica, Arial, sans-serif;
 }
-h1,h2,h3,h4,h5,h6, .navbar {
+.banner {
+    font-family: Kanit;
+}
+h1,h2,h3,h4,h5,h6, .navbar, footer nav {
     font-family: 'Titillium Web', sans-serif;
+}
+
+/* -- _NAVIGATION INHERIT ---------------------0--------------- */
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    font-weight: inherit;
+    color: inherit;
+    background: inherit;
 }
 
 /*
@@ -18,10 +29,10 @@ div[class^='col'] h3, div[class*='col'] h3 {
 
 /* --- _COLORS
 #ace600; real lime
-#a6da0b; link hover
-#94c20a; lit bit darker lime for logo
+#94c20a; link hover
+#009973; nav color
+
 #00b386; blue green used for default heading color
-#394d00; very dark text green
 #264039; dark green highlight background
 */
 
@@ -49,37 +60,30 @@ section, .banner, div[class^='col'], div[class*='col'] {
 
 /*-- _LINKS ---------------------------------------------------- */
 
-a {
+a, a:hover {
     color: inherit;
-}
-a:hover {
     text-decoration: none;
 }
-p a, p a:hover {
-    color: inherit;
-    border-bottom: 2px dotted #a6da0b;
+p a {
+    border-bottom: 2px solid #94c20a;
 }
 p a:hover {
     border-bottom: 0;
-    color: #a6da0b
+    color: #94c20a
 }
 /* -- LINK COLOR -----------------------------------------------------  */
 
-/* nav no scrooled color */
-.navbar, .navbar .navbar-nav > li > a {
-    color: white;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
-}
 /* nav scrooled color */
-.navbar.scrolled, .scrolled.navbar .navbar-nav > li > a, footer a {
+footer nav a,
+.navbar .navbar-nav a, .navbar .navbar-nav > li > a, .navbar .dropdown-menu > li > a {
     color: #009973;
-    text-shadow: none;
 }
 /* nav hover color */
+footer nav a:hover,
 .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar-nav .dropdown:hover > a, .navbar-nav .dropdown a:hover,
-.navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus,
-footer a:hover  {
+.navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
     color: #ace600;
+    font-weight: normal;
 }
 
 /*-- _HEADINGS and COPY -------------------------------------------- */
@@ -128,45 +132,22 @@ ul.native li {
 
 .navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover {
     background: #94c20a;
-    font-weight: 600;
     color: White;
     text-shadow: none;
 }
 .navbar .navbar-brand:hover {
     background: #739900;
-}
-
-/* -- _NAVIGATION INHERIT ---------------------0--------------- */
-
-.navbar .navbar-nav > li > a:focus {
-    color: inherit;
-}
-.dropdown-menu > li > a, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    font-weight: inherit;
-    color: inherit;
-    background: inherit;
-}
-.navbar .navbar-nav > li > a, .navbar-nav > li > a {
-    text-shadow: inherit;
+    color: White;
 }
 
 /*-- _NAVIGATION --------------------------------------- */
 
 .navbar {
     border: 0;
-    background: transparent;
-    font-weight: bold;
-    background-position: center bottom;
-    box-shadow: none;
-    transition-duration: 1s;
-}
-.navbar.scrolled {
-    background: #1f7a56;
-    background: url("images/navBG.png") center no-repeat;
-    background-size: cover;
     background: rgba(255,255,255,0.95);
     box-shadow: 0 0 6px 6px rgba(0,0,0,.3);
-    text-shadow: 0;
+    background-position: center bottom;
+    transition-duration: 1s;
 }
 .nav > li > a:hover, .nav > li > a:focus, .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
     background: inherit;
@@ -181,15 +162,9 @@ ul.native li {
     cursor: pointer;
 }
 .dropdown-menu {
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-    text-align: right;
-}
-.scrolled .dropdown-menu {
-    border-radius: 2px;
     background: rgba(255,255,255,0.95);
     box-shadow: 0px 5px 4px 1px rgba(0,0,0,.3);
+    border: 0;
 }
 .dropdown-menu li:last-child {
     font-weight: normal;
@@ -206,16 +181,12 @@ footer {
     color: gray;
 }
 
-footer ul {
-    font-weight: bold;
-}
-
 /*-- _BANNER ----------------------------------- */
 
 .banner {
     position: relative;
     overflow: hidden;
-    padding-top: 150px;
+    padding-top: 200px;
     color: rgba(255, 255, 255, 1);
     background: rgba(0, 200, 200, 0.5); /* homeVideo6HD */
     background: rgba(0, 0, 100, 0.4); /* homeVideo9HD */
@@ -223,7 +194,7 @@ footer ul {
     background: rgba(50, 100, 50, 0.5); /* homeVideoA */
     background: rgba(30, 100, 30, 0.7); /* homeVideoB */
     background: rgba(0, 0, 0, 0.3); /* homeVideoC */
-	border-bottom: 2px solid #a6da0b;
+	border-bottom: 4px solid #ace600;
 }
 .banner video {
     position: absolute;
@@ -245,24 +216,18 @@ footer ul {
     background-size: 100% 100%;
     background-size: cover;
     background-attachment: fixed;
-    padding-top: 200px;
+    /* text-shadow: 0 0 2px rgba(0,0,0,1); */
 }
 .banner h1, .banner p {
     margin-bottom: 10px;
-    line-height: 1.2;
+    line-height: 1.3;
 }
 .banner p.large {
     margin-bottom: 10px;
-    line-height: 1.1;
 }
 .banner.the_firm {
     background-image: url("images/BG-the_firm.jpg");
     background-position: center top;
-    text-shadow: 0 0 2px rgba(0,0,0,1);
-    font-weight: bold;
-}
-.banner.the_firm h1 {
-    text-shadow: none;
 }
 .banner.practice_areas {
     background-image: url("images/BG-practice_areas.png");
@@ -411,64 +376,150 @@ footer ul {
 
 
 
+
+
+
+
+
+
+
+
 /* ------------------------------------------------------------------ */
+
+
+
+
+
+
+
+
+
+
 
 /* MEDIUM or larger = Desktops */
 @media only screen and (min-width: 769px) {
-    img + h3 {
-        margin-top: 20px;
-    }
     body {
         font-size: 15px;
     }
+    img + h3 {
+        margin-top: 20px;
+    }
+
+    /* === MAINNAV === MEDIUM or larger === */
+
     .navbar {
-        font-size: 16px;
+        font-size: 15px;
     }
-    h1 {
-    	font-size: 55px;
+    .navbar.noscroll {
+        background: transparent;
+        box-shadow: none;
     }
-    h2 {
-    	font-size: 28px;
+    .nav > li > a {
+        padding: 15px 10px;
     }
-    .col-lg-12 h2 {
-    	font-size: 34px;
+    .dropdown:hover .dropdown-menu {
+        display: block;
     }
-    h3 {
-    	font-size: 25px;
+    .dropdown-menu {
+        text-align: right;
     }
-    .banner {
-        font-size: 18px;
+    .noscroll .dropdown-menu {
+        background: transparent;
+        box-shadow: none;
+    }
+    .noscroll a, .navbar.noscroll .navbar-nav > li > a, .noscroll .dropdown-menu > li > a {
+        color: white;
+        font-weight: 300;
+    }
+    .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li > a:focus, .noscroll .dropdown-menu > li > a:hover {
+        color: #ace600;
+    }
+    .noscroll .navbar-collapse a {
+        text-shadow: 2px 2px 0 rgba(0,0,0,0);
     }
     ul.native li {
         background-size: 12px 12px;
     }
+
+    /* === FONT-SIZE === MEDIUM or larger === */
+
+    .banner {
+        font-size: 25px;
+    }
+    .banner.home {
+        font-size: 20px;
+    }
+    .banner h1 {
+    	font-size: 60px;
+    }
+    .banner.home h1 {
+    	font-size: 45px;
+    }
+    h2 {
+    	font-size: 25px;
+    }
+    .col-lg-12 h2 {
+    	font-size: 35px;
+    }
+    h3 {
+    	font-size: 25px;
+    }
+
+    /* === FOOTER === MEDIUM or larger === */
+
     footer {
         font-size: 16px;
+    }
+    footer nav ul {
+        font-size: 21px;
+        list-style-type: none;
+    }
+    footer nav ul li {
+        padding: 2px 0;
     }
     footer .contact .larger span {
         font-size: 18px;
         border-bottom: 2px dotted gray;
         padding-bottom: 4px;
         margin-bottom: 10px;
-        font-weight: 300;
-        color: Black;
+    }
+    footer .copyright {
+        background: #eee;
+        padding-top: 1em;
+        font-size: 13px;
     }
 }
 
-/* LARGE or larger */
+/* === LARGE or larger =================================== */
+
 @media only screen and (min-width : 993px) {
-    /* Make Navigation Toggle on Desktop Hover */
-    .dropdown:hover .dropdown-menu {
-        display: block;
+
+    ul.native li {
+        background-size: 15px 15px;
     }
+
+    /* === FONT-SIZE === LARGE or larger === */
+
     body {
         font-size: 19px;
     }
+    .navbar {
+        font-size: 18px;
+    }
+    .banner {
+        font-size: 24px;
+    }
     .banner h1 {
-    	font-size: 90px;
+    	font-size: 70px;
+    }
+    .banner.home h1 {
+    	font-size: 60px;
     }
     .banner .large {
         font-size: 34px;
+    }
+    .banner.home {
+        font-size: 30px;
     }
     h2 {
     	font-size: 36px;
@@ -480,42 +531,62 @@ footer ul {
     h3 {
     	font-size: 30px;
     }
-    .banner {
-        font-size: 24px;
-    }
-    ul.native li {
-        background-size: 15px 15px;
-    }
+
+    /* === FOOTER === LARGE or larger === */
 
     footer .copyright {
         font-size: 14px;
     }
-    footer ul li {
+    footer nav ul li {
         display: inline;
         border-left: 2px dotted #009973;
-        padding-left: 12px;
+        padding: 0 0 0 12px;
         margin-left: 8px;
+        font-size: 18px;
     }
-    footer ul li:first-child {
+    footer nav ul li:first-child {
         border-left: 0;
         padding-left: 0;
         margin-left: 0;
     }
 }
-/* LARGE Devices, Wide Screens */
+
+/* === X-LARGE or larger =================================== */
+
 @media only screen and (min-width : 1201px) {
+    .navbar {
+        font-size: 18px;
+    }
+    .banner {
+        font-size: 29px;
+    }
     .banner h1 {
     	font-size: 90px;
     }
     .banner.home h1 {
     	font-size: 60px;
     }
+    .banner .medium {
+        font-size: 33px;
+    }
     .banner .large {
-        font-size: 37px;
+        font-size: 43px;
+    }
+    footer nav ul li {
+        font-size: 22px;
     }
 }
 
-/* MOBILE + TABLETS = SMALL */
+
+
+
+/* ======================================================= */
+
+
+
+
+/* === MOBILE and TABLETS ====== SMALL ================= */
+
 @media only screen and (max-width : 768px) {
     div[class^='col'] img, div[class*='col'] img {
         display: none;
@@ -526,22 +597,31 @@ footer ul {
     h1 {
     	font-size: 45px;
     }
+    nav
 }
 
-/* Custom */
+/* === col-xm-* ======================================== */
+
 @media only screen and (max-width : 550px) {
     div[class^='col'], div[class*='col'] {
         width: 100%;
     }
 }
 
-/* MOBILE = XSMALL */
-@media only screen and (max-width : 480px) {
 
-}
+/* === MOBILE ONLY ============ XSMALL ================ */
 
-/* Custom, iPhone Retina */
-@media only screen and (max-width : 320px) {
+@media only screen and (max-width : 480px) {}
 
-}
+
+/* === Retina ========================================= */
+
+@media only screen and (max-width : 320px) {}
+
+
+
+
+
+
+
 

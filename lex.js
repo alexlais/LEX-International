@@ -56,13 +56,11 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 });
 
 $(window).on('scroll', function(){
-    var slideHeight = $('.banner').outerHeight();
-    var slideHeight = slideHeight - ($('.nav').outerHeight());
     var slideHeight = ('50');
 	if( $(window).scrollTop()>slideHeight){
-		$('.navbar').addClass('scrolled');
+		$('.navbar').removeClass('noscroll');
 	} else {
-		$('.navbar').removeClass('scrolled');
+		$('.navbar').addClass('noscroll');
 	}
 });
 

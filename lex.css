@@ -28,12 +28,45 @@ div[class^='col'] h3, div[class*='col'] h3 {
 */
 
 /* --- _COLORS
-#ace600; real lime
-#94c20a; link hover
-#009973; nav color
+ace600 - real lime
+94c20a - link hover | logo background
+009973 - nav color
 
-#00b386; blue green used for default heading color
-#264039; dark green highlight background
+739900 - logo hover background
+
+00b386 - blue green used for default heading color
+
+1f473d - dark green highlight background
+66ffff - blue text
+ffff66 - yellow text
+ffd966 - orange text
+
+daffb3; - light green backgrounds
+d9f0c1;
+dcf8d3;
+f2ffe6
+e6ffcc
+
+
+
+eef7f4 - two nice light blue backgrounds
+daf1eb
+
+
+e5ffeb - light blue backgrounds
+ccffd8
+daf1e6
+
+
+    background: #daffb3;
+    background: #d9f0c1;
+    background: #dcf8d3;
+    background: #dcf8d3;
+
+    background: #e5ffeb;
+    background: #b8d65c;
+    background: #ccff99;
+    background: #d9f4be;
 */
 
 /* --- _SECTIONS ---------------------------- */
@@ -48,14 +81,21 @@ body {
     font-smooth: never;
     background: White;
 }
-section, .banner, div[class^='col'], div[class*='col'] {
+section {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+section.highlight, .banner {
+    padding-top: 2em;
     padding-bottom: 2em;
 }
-.row {
-    padding-top: 4em;
+div[class*='col-'] {
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
-.highlighted .row, footer .row {
-    padding-top: 2em;
+.row {
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 /*-- _LINKS ---------------------------------------------------- */
@@ -65,24 +105,27 @@ a, a:hover {
     text-decoration: none;
 }
 p a {
-    border-bottom: 2px solid #94c20a;
+    border-bottom: 2px solid #99cc00;
 }
 p a:hover {
     border-bottom: 0;
-    color: #94c20a
 }
+
+
 /* -- LINK COLOR -----------------------------------------------------  */
 
-/* nav scrooled color */
+/* nav color */
 footer nav a,
 .navbar .navbar-nav a, .navbar .navbar-nav > li > a, .navbar .dropdown-menu > li > a {
     color: #009973;
 }
 /* nav hover color */
-footer nav a:hover,
+a:hover,
 .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar-nav .dropdown:hover > a, .navbar-nav .dropdown a:hover,
 .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
     color: #ace600;
+    color: #94c20a;
+    color: #99cc00;
     font-weight: normal;
 }
 
@@ -90,43 +133,55 @@ footer nav a:hover,
 
 h1, h2, h3 {
 	color: #00b386;
+	color: #00b32d;
     font-weight: 200;
     margin: 0 0 20px;
-}
-.banner h1 {
-	color: white;
 }
 p {
     line-height: 1.5;
 }
-ul.native {
+ul.native, ul.native li {
     padding-left: 0;
     list-style: none;
 }
-ul.native li {
+ul.chevron li {
     padding-left: 20px;
     background: url("images/iconmonstr-arrow-29.svg") no-repeat left .4em;
 }
 
-/* -- _HIGHLIGHTED -------------------------------------- */
+/* -- _highlight -------------------------------------- */
 
-.highlighted {
-    background: #264039;
+.highlight {
+    background: url("images/BG-our_locations.jpeg") no-repeat center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+
+    background: #27594c;
     color: rgba(255, 255, 255, 0.75);
     padding-bottom: 0;
 }
-.highlighted h2 {
+.highlight h2 {
 	color: #ace600;
 }
-.highlighted h3 {
-	color: #66ffff; /* blue */
-	color: #ffff66; /* yellow */
-	color: #ffd966; /* orange */
+.highlight h3 {
+	color: #ffd966;
 }
-.highlighted img {
+.highlight img {
 	border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px 5px 0 0;
 }
+
+.focus {
+}
+.focus .row {
+    background: #eef6f2;
+}
+.focus-col {
+    background: #daf1e6;
+    background: #e0ebe6;
+}
+
+
 
 /* -- _BRAND _LOGO --------------------------------------------- */
 
@@ -140,35 +195,6 @@ ul.native li {
     color: White;
 }
 
-/*-- _NAVIGATION --------------------------------------- */
-
-.navbar {
-    border: 0;
-    background: rgba(255,255,255,0.95);
-    box-shadow: 0 0 6px 6px rgba(0,0,0,.3);
-    background-position: center bottom;
-    transition-duration: 1s;
-}
-.nav > li > a:hover, .nav > li > a:focus, .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
-    background: inherit;
-}
-/*
-.navbar-collapse {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-}
-*/
-.dropdown {
-    cursor: pointer;
-}
-.dropdown-menu {
-    background: rgba(255,255,255,0.95);
-    box-shadow: 0px 5px 4px 1px rgba(0,0,0,.3);
-    border: 0;
-}
-.dropdown-menu li:last-child {
-    font-weight: normal;
-}
 
 /*-- _WHITE ----------------------------------- */
 
@@ -186,7 +212,6 @@ footer {
     position: relative;
     overflow: hidden;
     padding-top: 200px;
-    color: rgba(255, 255, 255, 1);
     background: rgba(0, 200, 200, 0.5); /* homeVideo6HD */
     background: rgba(0, 0, 100, 0.4); /* homeVideo9HD */
     background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
@@ -194,7 +219,8 @@ footer {
     background: rgba(30, 100, 30, 0.7); /* homeVideoB */
     background: rgba(0, 0, 0, 0.3); /* homeVideoC */
     background: transparent;
-	border-bottom: 4px solid #ace600;
+	border-bottom: 5px solid #ace600;
+	color: White;
 }
 .banner video {
     position: absolute;
@@ -220,6 +246,9 @@ footer {
 .banner h1, .banner p {
     margin-bottom: 10px;
     line-height: 1.3;
+}
+.banner h1, .banner.home {
+	color: rgba(255, 255, 255, 0.9);
 }
 .banner p {
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
@@ -394,28 +423,69 @@ footer {
 
 
 
+/* MEDIUM ONLY = ALL Desktops */
+@media only screen and (min-width: 769px) and (max-width : 1199px) {
+    /*
+    ul.halfWidth-sm {
+        margin-right: -4%;
+    }
+    ul.halfWidth-sm li {
+        float: left;
+        margin: 0 1% 0 0;
+        width: 49%;
+    }
+    */
+    ul.halfWidth-sm {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
 
-/* MEDIUM or larger = Desktops */
+
+
+/* MEDIUM or larger = ALL Desktops */
 @media only screen and (min-width: 769px) {
     body {
-        font-size: 15px;
+        font-size: 18px;
     }
     img + h3 {
         margin-top: 20px;
     }
 
-    /* === MAINNAV === MEDIUM or larger === */
+    /* --- MAINNAV --- MEDIUM or larger --- */
 
     .navbar {
-        font-size: 15px;
+        border: 0;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 0 6px 6px rgba(0,0,0,.3);
+        background-position: center bottom;
+        transition-duration: 1s;
+    }
+    .nav > li > a:hover, .nav > li > a:focus, .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
+        background: inherit;
     }
     .navbar.noscroll {
         background: transparent;
         box-shadow: none;
     }
-    .nav > li > a {
-        padding: 15px 10px;
+
+    .dropdown {
+        cursor: pointer;
     }
+    .dropdown-menu {
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0px 5px 4px 1px rgba(0,0,0,.3);
+        border: 0;
+    }
+    .dropdown-menu li:last-child {
+        font-weight: normal;
+    }
+
+    .nav > li > a {
+        padding: 15px 12px;
+    }
+
     .dropdown:hover .dropdown-menu {
         display: block;
     }
@@ -440,7 +510,14 @@ footer {
         background-size: 12px 12px;
     }
 
-    /* === FONT-SIZE === MEDIUM or larger === */
+    /* --- FONT-SIZES --- MEDIUM or larger --- */
+
+    .navbar {
+        font-size: 15px;
+    }
+    .navbar .navbar-brand {
+        font-size: 17px;
+    }
 
     .banner {
         font-size: 25px;
@@ -454,17 +531,22 @@ footer {
     .banner.home h1 {
     	font-size: 45px;
     }
+
     h2 {
-    	font-size: 25px;
+    	font-size: 40px;
     }
     .col-lg-12 h2 {
-    	font-size: 35px;
+    	font-size: 50px;
+    	margin: 0;
+    }
+    h2.sm {
+    	font-size: 28px;
     }
     h3 {
     	font-size: 25px;
     }
 
-    /* === FOOTER === MEDIUM or larger === */
+    /* --- FOOTER --- MEDIUM or larger --- */
 
     footer {
         font-size: 16px;
@@ -489,24 +571,38 @@ footer {
     }
 }
 
+
+
+
 /* === LARGE or larger =================================== */
 
 @media only screen and (min-width : 993px) {
-
+    body {
+        font-size: 20px;
+    }
     ul.native li {
         background-size: 15px 15px;
     }
 
-    /* === FONT-SIZE === LARGE or larger === */
+    /* --- FONT-SIZE --- LARGE or larger --- */
 
     body {
-        font-size: 19px;
     }
     .navbar {
         font-size: 18px;
     }
+    .navbar .navbar-brand {
+        font-size: 20px;
+    }
+
     .banner {
         font-size: 24px;
+    }
+    .banner.home {
+        font-size: 30px;
+    }
+    .banner .large {
+        font-size: 34px;
     }
     .banner h1 {
     	font-size: 70px;
@@ -514,24 +610,14 @@ footer {
     .banner.home h1 {
     	font-size: 60px;
     }
-    .banner .large {
-        font-size: 34px;
-    }
-    .banner.home {
-        font-size: 30px;
-    }
-    h2 {
+    h2.sm {
     	font-size: 36px;
-    }
-    .col-lg-12 h2 {
-    	font-size: 50px;
-    	margin: 0;
     }
     h3 {
     	font-size: 30px;
     }
 
-    /* === FOOTER === LARGE or larger === */
+    /* --- FOOTER --- LARGE or larger --- */
 
     footer .copyright {
         font-size: 14px;
@@ -550,20 +636,17 @@ footer {
     }
 }
 
+
+
+
+
 /* === X-LARGE or larger =================================== */
 
 @media only screen and (min-width : 1201px) {
-    .navbar {
-        font-size: 18px;
-    }
-    .banner {
-        font-size: 29px;
-    }
+
+
     .banner h1 {
-    	font-size: 90px;
-    }
-    .banner.home h1 {
-    	font-size: 60px;
+    	font-size: 80px;
     }
     .banner .medium {
         font-size: 33px;
@@ -571,10 +654,14 @@ footer {
     .banner .large {
         font-size: 41px;
     }
+
     footer nav ul li {
         font-size: 22px;
     }
 }
+
+
+
 
 
 
@@ -584,10 +671,14 @@ footer {
 
 
 
+
+
+
+
 /* === MOBILE and TABLETS ====== SMALL ================= */
 
 @media only screen and (max-width : 768px) {
-    div[class^='col'] img, div[class*='col'] img {
+    div[class*='col-'] img {
         display: none;
     }
     body {
@@ -596,13 +687,12 @@ footer {
     h1 {
     	font-size: 45px;
     }
-    nav
 }
 
 /* === col-xm-* ======================================== */
 
 @media only screen and (max-width : 550px) {
-    div[class^='col'], div[class*='col'] {
+    div[class*='col-'] {
         width: 100%;
     }
 }

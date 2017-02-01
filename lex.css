@@ -2,7 +2,7 @@
 body {
     font-family: "Work Sans", Helvetica, Arial, sans-serif;
 }
-.banner {
+.banner, .intro {
     font-family: Kanit;
 }
 h1,h2,h3,h4,h5,h6, .navbar, footer nav {
@@ -12,62 +12,9 @@ h1,h2,h3,h4,h5,h6, .navbar, footer nav {
 /* -- _NAVIGATION INHERIT ---------------------0--------------- */
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    font-weight: inherit;
     color: inherit;
     background: inherit;
 }
-
-/*
-div[class^='col'] h3, div[class*='col'] h3 {
-    color: #F00;
-}
-
-.col-lg-3:nth-child(4n+1){
-    clear: left;
-}
-*/
-
-/* --- _COLORS
-ace600 - real lime
-94c20a - link hover | logo background
-009973 - nav color
-
-739900 - logo hover background
-
-00b386 - blue green used for default heading color
-
-1f473d - dark green highlight background
-66ffff - blue text
-ffff66 - yellow text
-ffd966 - orange text
-
-daffb3; - light green backgrounds
-d9f0c1;
-dcf8d3;
-f2ffe6
-e6ffcc
-
-
-
-eef7f4 - two nice light blue backgrounds
-daf1eb
-
-
-e5ffeb - light blue backgrounds
-ccffd8
-daf1e6
-
-
-    background: #daffb3;
-    background: #d9f0c1;
-    background: #dcf8d3;
-    background: #dcf8d3;
-
-    background: #e5ffeb;
-    background: #b8d65c;
-    background: #ccff99;
-    background: #d9f4be;
-*/
 
 /* --- _SECTIONS ---------------------------- */
 
@@ -78,24 +25,37 @@ body {
     /* padding-top: 50px; */
     padding-bottom: 20px;
     color: Black;
-    font-smooth: never;
     background: White;
+    font-smooth: never;
 }
 section {
-    margin-top: 3em;
-    margin-bottom: 3em;
 }
-section.highlight, .banner {
+.container.highlight {
+    margin-top: 3em;
+}
+.banner {
     padding-top: 2em;
     padding-bottom: 2em;
+    margin-bottom: 2em;
 }
 div[class*='col-'] {
     padding-top: 1em;
     padding-bottom: 1em;
 }
+div[class*='col-'] div[class*='col-'] {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 .row {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+.row .row {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+footer .row {
+    margin-bottom: 0;
 }
 
 /*-- _LINKS ---------------------------------------------------- */
@@ -103,21 +63,24 @@ div[class*='col-'] {
 a, a:hover {
     color: inherit;
     text-decoration: none;
+    transition-duration: 0.5s;
 }
 p a {
-    border-bottom: 2px solid #99cc00;
+    border-bottom: 2px dotted #009999;
 }
 p a:hover {
-    border-bottom: 0;
+    border-bottom: none;
 }
-
+nav a, .dropdown-menu > li > a {
+    font-weight: bold;
+}
 
 /* -- LINK COLOR -----------------------------------------------------  */
 
 /* nav color */
-footer nav a,
+footer nav a, p a,
 .navbar .navbar-nav a, .navbar .navbar-nav > li > a, .navbar .dropdown-menu > li > a {
-    color: #009973;
+    color: #009999;
 }
 /* nav hover color */
 a:hover,
@@ -126,7 +89,6 @@ a:hover,
     color: #ace600;
     color: #94c20a;
     color: #99cc00;
-    font-weight: normal;
 }
 
 /*-- _HEADINGS and COPY -------------------------------------------- */
@@ -140,25 +102,63 @@ h1, h2, h3 {
 p {
     line-height: 1.5;
 }
-ul.native, ul.native li {
-    padding-left: 0;
+.chevron {
     list-style: none;
+    padding-left: 0;
+    margin-bottom: 10px;
 }
-ul.chevron li {
+.chevron li {
     padding-left: 20px;
-    background: url("images/iconmonstr-arrow-29.svg") no-repeat left .4em;
+    background: url("assets/iconmonstr-arrow-29.svg") no-repeat left .4em;
+}
+.chevron p {
+    margin-bottom: 3px;
 }
 
-/* -- _highlight -------------------------------------- */
+.img-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* -- SPECIAL SECTIONS -------------------------------------- */
 
-.highlight {
-    background: url("images/BG-our_locations.jpeg") no-repeat center;
+.intro {
+    color: #00b3b3;
+    color: #94c20a;
+    color: #ffbf00;
+    color: #a32949;
+    color: #0a94c2;
+    color: #940ac2;
+    color: #f9bc06;
+    color: #f9bc06;
+    color: #ff8000;
+    color: #009999;
+}
+
+.focus .row {
+    background: rgba(255, 128, 0, 0);
+    background: rgba(0, 179, 45, 0);
+    background: rgba(0, 128, 128, 0);
+}
+.col-focus-1 {
+    background: rgba(255, 128, 0, 0);
+    background: rgba(0, 179, 45, 0.03);
+    background: rgba(0, 128, 128, 0.08);
+}
+.col-focus-2 {
+    background: rgba(0, 179, 45, 0.04);
+}
+
+
+section.highlight {
+    background: url("assets/BG-our_locations.jpeg") no-repeat center;
     background-size: 100% 100%;
     background-attachment: fixed;
-
-    background: #27594c;
+    background: transparent;
+}
+.container.highlight {
+    background: #006666;
     color: rgba(255, 255, 255, 0.75);
-    padding-bottom: 0;
 }
 .highlight h2 {
 	color: #ace600;
@@ -167,21 +167,7 @@ ul.chevron li {
 	color: #ffd966;
 }
 .highlight img {
-	border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px 5px 0 0;
 }
-
-.focus {
-}
-.focus .row {
-    background: #eef6f2;
-}
-.focus-col {
-    background: #daf1e6;
-    background: #e0ebe6;
-}
-
-
 
 /* -- _BRAND _LOGO --------------------------------------------- */
 
@@ -191,19 +177,8 @@ ul.chevron li {
     text-shadow: none;
 }
 .navbar .navbar-brand:hover {
-    background: #739900;
+    background: #006666;
     color: White;
-}
-
-
-/*-- _WHITE ----------------------------------- */
-
-
-/*-- _FOOTER ----------------------------------- */
-
-footer {
-    box-shadow: 0 0 6px 6px rgba(0,0,0,.3);
-    color: gray;
 }
 
 /*-- _BANNER ----------------------------------- */
@@ -211,7 +186,7 @@ footer {
 .banner {
     position: relative;
     overflow: hidden;
-    padding-top: 200px;
+    padding-top: 150px;
     background: rgba(0, 200, 200, 0.5); /* homeVideo6HD */
     background: rgba(0, 0, 100, 0.4); /* homeVideo9HD */
     background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
@@ -243,35 +218,28 @@ footer {
     background-size: cover;
     background-attachment: fixed;
 }
-.banner h1, .banner p {
-    margin-bottom: 10px;
-    line-height: 1.3;
-}
 .banner h1, .banner.home {
 	color: rgba(255, 255, 255, 0.9);
 }
-.banner p {
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-}
 .banner.the_firm {
-    background-image: url("images/BG-the_firm.jpg");
+    background-image: url("assets/BG-the_firm.jpg");
     background-position: center top;
 }
 .banner.practice_areas {
-    background-image: url("images/BG-practice_areas.png");
+    background-image: url("assets/BG-practice_areas.png");
     background-position: center -200px;
 }
 .banner.our_team {
-    background-image: url("images/BG-our_team2.jpeg");
+    background-image: url("assets/BG-our_team2.jpeg");
     background-position: center -100px;
 }
 .banner.links_events {
-    background-image: url("images/BG-links_events.jpeg");
+    background-image: url("assets/BG-links_events.jpeg");
     background-position: right -50px;
     padding-bottom: 4em;
 }
 .banner.contact {
-    background-image: url("images/BG-contact.jpg");
+    background-image: url("assets/BG-contact.jpg");
     background-position: right center;
 }
 
@@ -293,125 +261,6 @@ footer {
 
 
 
-
-
-
-
-
-
-
-
-
-
-.img-home-portfolio,
-.img-customer,
-.portfolio-item {
-    margin-bottom: 30px;
-}
-
-
-
-
-
-
-
-
-/* Page Sections */
-
-
-
-.tab-pane {
-    margin-top: 15px;
-}
-.sidebar {
-    margin-top: 40px;
-}
-
-.sidebar ul {
-    border-radius: 5px;
-    padding: 5px;
-    border: 1px solid #cccccc;
-}
-
-/* Half Page Height Carousel Customization */
-.carousel {
-    height: 50%;
-}
-
-.item,
-.active,
-.carousel-inner {
-    height: 100%;
-}
-
-.fill {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-}
-
-/* Social Icons Styles */
-.list-social-icons {
-    margin-bottom: 45px;
-}
-
-.tooltip-social a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.facebook-link a:hover {
-    color: #3b5998;
-}
-
-.linkedin-link a:hover {
-    color: #007fb1;
-}
-
-.twitter-link a:hover {
-    color: #39a9e0;
-}
-
-.google-plus-link a:hover {
-    color: #d14836;
-}
-
-/* Service Page Styles */
-.service-icon {
-    font-size: 50px;
-}
-
-/* 404 Page Styles */
-.error-404 {
-    font-size: 8em;
-}
-
-/* Pricing Page Styles */
-.price {
-    font-size: 4em;
-}
-
-.price-cents {
-    vertical-align: super;
-    font-size: 50%;
-}
-
-.price-month {
-    font-size: 35%;
-    font-style: italic;
-}
-
-
-
-
-
-
-
-
-
-
-
 /* ------------------------------------------------------------------ */
 
 
@@ -423,7 +272,7 @@ footer {
 
 
 
-/* MEDIUM ONLY = ALL Desktops */
+/* MEDIUM ONLY */
 @media only screen and (min-width: 769px) and (max-width : 1199px) {
     /*
     ul.halfWidth-sm {
@@ -449,10 +298,45 @@ footer {
     body {
         font-size: 18px;
     }
-    img + h3 {
-        margin-top: 20px;
+    .highlight .row {
     }
+    .highlight h3 {
+        padding-top: 20px;
+    }
+    .highlight .image {
+        margin: 0 -15px;
+    }
+    .no-gutter .row .col-sm-6 {
+        padding: 0;
+    }
+    /*
+    .col-lg-12 h2 {
+        margin-top: -140px;
+        margin-bottom: 20px;
+        font-size: 50px;
+        height: 100px;
+        color: White;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 15px  15px 25px  15px;
+    }
+    .first .col-lg-12 h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        height: auto;
+        color: inherit;
+        background-color: transparent;
+        padding: 0;
+    }
+    */
 
+    .practiceareas img {
+        padding-top: 3em;
+        margin-bottom: -0.5em;
+    }
+    .practiceareas h2 {
+        font-size: 50px;
+        text-align: center;
+    }
     /* --- MAINNAV --- MEDIUM or larger --- */
 
     .navbar {
@@ -478,8 +362,8 @@ footer {
         box-shadow: 0px 5px 4px 1px rgba(0,0,0,.3);
         border: 0;
     }
-    .dropdown-menu li:last-child {
-        font-weight: normal;
+    .dropdown-menu > li:last-child > a {
+        font-weight: 300;
     }
 
     .nav > li > a {
@@ -498,7 +382,6 @@ footer {
     }
     .noscroll a, .navbar.noscroll .navbar-nav > li > a, .noscroll .dropdown-menu > li > a {
         color: white;
-        font-weight: 300;
     }
     .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li > a:focus, .noscroll .dropdown-menu > li > a:hover {
         color: #ace600;
@@ -506,7 +389,7 @@ footer {
     .noscroll .navbar-collapse a {
         text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     }
-    ul.native li {
+    ul.chevron li {
         background-size: 12px 12px;
     }
 
@@ -519,11 +402,10 @@ footer {
         font-size: 17px;
     }
 
-    .banner {
-        font-size: 25px;
-    }
-    .banner.home {
-        font-size: 20px;
+    .banner p {
+        font-size: 30px;
+        line-height: 1;
+        /* text-shadow: 1px 1px 1px rgba(0,0,0,0.5); */
     }
     .banner h1 {
     	font-size: 60px;
@@ -531,25 +413,31 @@ footer {
     .banner.home h1 {
     	font-size: 45px;
     }
+    .intro p {
+        font-size: 40px;
+        line-height: 1;
+    }
 
     h2 {
-    	font-size: 40px;
+    	font-size: 38px;
     }
-    .col-lg-12 h2 {
-    	font-size: 50px;
+    .highlight h2 {
+    	font-size: 55px;
     	margin: 0;
     }
-    h2.sm {
-    	font-size: 28px;
-    }
     h3 {
-    	font-size: 25px;
+    	font-size: 35px;
+    }
+    .address p {
+        font-size: 15px;
+        color: white;
     }
 
     /* --- FOOTER --- MEDIUM or larger --- */
 
     footer {
         font-size: 16px;
+        color: gray;
     }
     footer nav ul {
         font-size: 21px;
@@ -580,8 +468,15 @@ footer {
     body {
         font-size: 20px;
     }
-    ul.native li {
+    ul.chevron li {
         background-size: 15px 15px;
+    }
+    .highlight div[class*='col-'] {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .highlight .image {
+        margin: 0 -25px;
     }
 
     /* --- FONT-SIZE --- LARGE or larger --- */
@@ -595,13 +490,7 @@ footer {
         font-size: 20px;
     }
 
-    .banner {
-        font-size: 24px;
-    }
-    .banner.home {
-        font-size: 30px;
-    }
-    .banner .large {
+    .banner p {
         font-size: 34px;
     }
     .banner h1 {
@@ -610,11 +499,11 @@ footer {
     .banner.home h1 {
     	font-size: 60px;
     }
-    h2.sm {
-    	font-size: 36px;
+    .intro p {
+    	font-size: 45px;
     }
-    h3 {
-    	font-size: 30px;
+    .address p {
+        font-size: 17px;
     }
 
     /* --- FOOTER --- LARGE or larger --- */
@@ -645,14 +534,17 @@ footer {
 @media only screen and (min-width : 1201px) {
 
 
+    .banner {
+        padding-top: 200px;
+    }
     .banner h1 {
     	font-size: 80px;
     }
-    .banner .medium {
-        font-size: 33px;
+    .banner p {
+        font-size: 40px;
     }
-    .banner .large {
-        font-size: 41px;
+    .col-focus {
+        margin-top: 0;
     }
 
     footer nav ul li {
@@ -711,6 +603,61 @@ footer {
 
 
 
+/*
+div[class^='col'] h3, div[class*='col'] h3 {
+    color: #F00;
+}
+
+.col-lg-3:nth-child(4n+1){
+    clear: left;
+}
+*/
+
+/* --- _COLORS
+ace600 - real lime
+94c20a - link hover | logo background
+009973 - nav color
+
+739900 - logo hover background
+
+00b386 - blue green used for default heading color
+
+1f473d - dark green highlight background
+66ffff - blue text
+ffff66 - yellow text
+ffd966 - orange text
+
+ff8000 - beutifull text color
+
+daffb3; - light green backgrounds
+d9f0c1;
+dcf8d3;
+f2ffe6
+e6ffcc
+
+
+
+eef7f4 - two nice light blue backgrounds
+daf1eb
+
+
+e5ffeb - light blue backgrounds
+ccffd8
+daf1e6
+
+
+    background: #daffb3;
+    background: #d9f0c1;
+    background: #dcf8d3;
+    background: #dcf8d3;
+
+    background: #e5ffeb;
+    background: #b8d65c;
+    background: #ccff99;
+    background: #d9f4be;
+
+
+*/
 
 
 

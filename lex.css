@@ -24,19 +24,9 @@ html, body {
 body {
     /* padding-top: 50px; */
     padding-bottom: 20px;
-    color: Black;
+    color: #888;
     background: White;
     font-smooth: never;
-}
-section {
-}
-.container.highlight {
-    margin-top: 3em;
-}
-.banner {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    margin-bottom: 2em;
 }
 div[class*='col-'] {
     padding-top: 1em;
@@ -56,6 +46,7 @@ div[class*='col-'] div[class*='col-'] {
 }
 footer .row {
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 /*-- _LINKS ---------------------------------------------------- */
@@ -66,7 +57,7 @@ a, a:hover {
     transition-duration: 0.5s;
 }
 p a {
-    border-bottom: 2px dotted #009999;
+    border-bottom: 1px solid #009999;
 }
 p a:hover {
     border-bottom: none;
@@ -99,6 +90,21 @@ h1, h2, h3 {
     font-weight: 200;
     margin: 0 0 20px;
 }
+.ourteam .profile h2 span {
+    display: block;
+    font-size: 0.32em;
+    color: #777;
+    letter-spacing: 2px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+h3 {
+    color: #ff8000;
+    color: #009999;
+}
+h4 {
+    font-weight: bold;
+}
 p {
     line-height: 1.5;
 }
@@ -120,6 +126,9 @@ p {
     height: auto;
     display: block;
 }
+footer nav ul {
+    list-style:none;
+}
 /* -- SPECIAL SECTIONS -------------------------------------- */
 
 .intro {
@@ -133,41 +142,25 @@ p {
     color: #f9bc06;
     color: #ff8000;
     color: #009999;
+    color: #888;
 }
 
-.focus .row {
-    background: rgba(255, 128, 0, 0);
-    background: rgba(0, 179, 45, 0);
-    background: rgba(0, 128, 128, 0);
-}
-.col-focus-1 {
-    background: rgba(255, 128, 0, 0);
-    background: rgba(0, 179, 45, 0.03);
-    background: rgba(0, 128, 128, 0.08);
-}
-.col-focus-2 {
-    background: rgba(0, 179, 45, 0.04);
-}
-
-
-section.highlight {
-    background: url("assets/BG-our_locations.jpeg") no-repeat center;
-    background-size: 100% 100%;
-    background-attachment: fixed;
-    background: transparent;
-}
-.container.highlight {
-    background: #006666;
-    color: rgba(255, 255, 255, 0.75);
+.container.highlight, .container-fluid.highlight {
+    background: #2d3939;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 1em;
 }
 .highlight h2 {
 	color: #ace600;
+    margin: 0;
 }
 .highlight h3 {
 	color: #ffd966;
 }
 .highlight img {
 }
+
+
 
 /* -- _BRAND _LOGO --------------------------------------------- */
 
@@ -177,7 +170,7 @@ section.highlight {
     text-shadow: none;
 }
 .navbar .navbar-brand:hover {
-    background: #006666;
+    background: #739900;
     color: White;
 }
 
@@ -186,7 +179,8 @@ section.highlight {
 .banner {
     position: relative;
     overflow: hidden;
-    padding-top: 150px;
+    padding-top: 175px;
+    padding-bottom: 100px;
     background: rgba(0, 200, 200, 0.5); /* homeVideo6HD */
     background: rgba(0, 0, 100, 0.4); /* homeVideo9HD */
     background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
@@ -194,14 +188,15 @@ section.highlight {
     background: rgba(30, 100, 30, 0.7); /* homeVideoB */
     background: rgba(0, 0, 0, 0.3); /* homeVideoC */
     background: transparent;
-	border-bottom: 5px solid #ace600;
 	color: White;
+    text-align: center;
 }
 .banner video {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     min-width: 100%;
+    min-height: 100%;
     width: auto;
     height: auto;
     z-index: -100;
@@ -213,13 +208,13 @@ section.highlight {
 }
 
 .banner.the_firm, .banner.practice_areas, .banner.our_team, .banner.links_events, .banner.contact {
-    background-repeat: no-repeat left -100px;
+    background-repeat: no-repeat;
     background-size: 100% 100%;
     background-size: cover;
     background-attachment: fixed;
 }
 .banner h1, .banner.home {
-	color: rgba(255, 255, 255, 0.9);
+	color: rgba(255, 255, 255, 0.95);
 }
 .banner.the_firm {
     background-image: url("assets/BG-the_firm.jpg");
@@ -230,13 +225,12 @@ section.highlight {
     background-position: center -200px;
 }
 .banner.our_team {
-    background-image: url("assets/BG-our_team2.jpeg");
+    background-image: url("assets/BG-our_team.jpeg");
     background-position: center -100px;
 }
 .banner.links_events {
     background-image: url("assets/BG-links_events.jpeg");
     background-position: right -50px;
-    padding-bottom: 4em;
 }
 .banner.contact {
     background-image: url("assets/BG-contact.jpg");
@@ -252,7 +246,23 @@ section.highlight {
 }
 */
 
+/* --- FOOTER --- MEDIUM or larger --- */
 
+footer {
+    font-size: 16px;
+    color: gray;
+    border-top: 1px solid rgba(198, 210, 210, 0.3);
+    background: rgba(198, 210, 210, 0.1);
+    margin-top: 4em;
+}
+footer .copyright {
+    background: rgba(198, 210, 210, 0.5);
+    padding-top: 1em;
+    font-size: 12px;
+}
+footer .copyright a {
+    border: none;
+}
 
 
 
@@ -272,18 +282,20 @@ section.highlight {
 
 
 
-/* MEDIUM ONLY */
+/* MEDIUM to LARGE */
+@media only screen and (min-width: 769px) and (max-width : 992px) {
+    .nav > li > a {
+        padding: 15px 8px;
+    }
+    .nav > li > a.dropdown-toggle {
+        padding: 15px 0 15px 8px;
+    }
+    .banner.home {
+        padding-top: 150px;
+    }
+}
+/* MEDIUM to LARGE */
 @media only screen and (min-width: 769px) and (max-width : 1199px) {
-    /*
-    ul.halfWidth-sm {
-        margin-right: -4%;
-    }
-    ul.halfWidth-sm li {
-        float: left;
-        margin: 0 1% 0 0;
-        width: 49%;
-    }
-    */
     ul.halfWidth-sm {
         -webkit-column-count: 2;
         -moz-column-count: 2;
@@ -329,14 +341,49 @@ section.highlight {
     }
     */
 
+    .focus .row {
+        background: rgba(255, 128, 0, 0);
+        background: rgba(0, 179, 45, 0);
+        background: rgba(0, 128, 128, 0);
+    }
+    .col-focus-1 {
+        background: rgba(255, 128, 0, 0);
+        background: rgba(0, 128, 128, 0.03);
+        background: rgba(0, 179, 45, 0.07);
+    }
+    .col-focus-2 {
+        background: rgba(0, 179, 45, 0.07);
+    }
+
     .practiceareas img {
-        padding-top: 3em;
+        padding-top: 2em;
+        margin-top: 1em;
         margin-bottom: -0.5em;
     }
     .practiceareas h2 {
-        font-size: 50px;
         text-align: center;
     }
+    .ourteam .profile {
+        margin-top: 1em;
+        border-top: 2em solid white;
+        padding: 0.5em 0;
+        background: rgba(0, 0, 0, 0.03);
+        box-shadow: inset 0 -100px 150px -70px rgba(0,0,0,.06);
+    }
+    .ourteam .profile img {
+        box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
+    }
+    .ourteam .content {
+        margin-top: 1em;
+        padding-top: 1em;
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+    }
+    .ourteam .content:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+    }
+
     /* --- MAINNAV --- MEDIUM or larger --- */
 
     .navbar {
@@ -366,10 +413,6 @@ section.highlight {
         font-weight: 300;
     }
 
-    .nav > li > a {
-        padding: 15px 12px;
-    }
-
     .dropdown:hover .dropdown-menu {
         display: block;
     }
@@ -393,9 +436,26 @@ section.highlight {
         background-size: 12px 12px;
     }
 
-    /* --- FONT-SIZES --- MEDIUM or larger --- */
+    .subnav li {
+        padding: 0;
+        line-height: 2;
+    }
+    .subnav a {
+        padding: 0 4px;
+        word-break: keep-all;
+        word-spacing: -4px;
+        white-space: nowrap;
+        border: 1px solid white;
+        border-radius: 10px;
+        color: #ff8000;
+    }
+    .subnav a:hover {
+        border-color: rgba(255, 128, 0, 0.5);
+        background: rgba(255, 128, 0, 0.02);
+    }
+    /* --- _FONT-SIZES --- MEDIUM or larger --- */
 
-    .navbar {
+    .navbar, .subnav {
         font-size: 15px;
     }
     .navbar .navbar-brand {
@@ -403,46 +463,46 @@ section.highlight {
     }
 
     .banner p {
-        font-size: 30px;
+        font-size: 40px;
         line-height: 1;
         /* text-shadow: 1px 1px 1px rgba(0,0,0,0.5); */
     }
     .banner h1 {
     	font-size: 60px;
     }
-    .banner.home h1 {
-    	font-size: 45px;
+    .intro {
+        padding: 3em 0 2em;
     }
     .intro p {
-        font-size: 40px;
+        font-size: 45px;
         line-height: 1;
     }
 
     h2 {
+    	font-size: 55px;
+    }
+    .home h2 {
     	font-size: 38px;
     }
-    .highlight h2 {
-    	font-size: 55px;
-    	margin: 0;
+    .thefirm h2 {
+    	font-size: 45px;
+    }
+    .ourteam .profile h2 {
+    	font-size: 65px;
+    	margin-top: 7rem;
     }
     h3 {
-    	font-size: 35px;
+    	font-size: 28px;
+    }
+    h4 {
+    	font-size: 20px;
     }
     .address p {
         font-size: 15px;
-        color: white;
     }
 
     /* --- FOOTER --- MEDIUM or larger --- */
 
-    footer {
-        font-size: 16px;
-        color: gray;
-    }
-    footer nav ul {
-        font-size: 21px;
-        list-style-type: none;
-    }
     footer nav ul li {
         padding: 2px 0;
     }
@@ -451,11 +511,6 @@ section.highlight {
         border-bottom: 2px dotted gray;
         padding-bottom: 4px;
         margin-bottom: 10px;
-    }
-    footer .copyright {
-        background: #eee;
-        padding-top: 1em;
-        font-size: 13px;
     }
 }
 
@@ -483,44 +538,30 @@ section.highlight {
 
     body {
     }
-    .navbar {
+    .navbar, .subnav {
         font-size: 18px;
     }
     .navbar .navbar-brand {
         font-size: 20px;
     }
 
-    .banner p {
-        font-size: 34px;
-    }
     .banner h1 {
     	font-size: 70px;
     }
     .banner.home h1 {
-    	font-size: 60px;
+    	font-size: 65px;
     }
-    .intro p {
-    	font-size: 45px;
-    }
-    .address p {
+    .address p, .ourteam .description  {
         font-size: 17px;
     }
 
     /* --- FOOTER --- LARGE or larger --- */
 
-    footer .copyright {
-        font-size: 14px;
-    }
     footer nav ul li {
         display: inline;
-        border-left: 2px dotted #009973;
-        padding: 0 0 0 12px;
-        margin-left: 8px;
-        font-size: 18px;
+        margin-left: 15px;
     }
     footer nav ul li:first-child {
-        border-left: 0;
-        padding-left: 0;
         margin-left: 0;
     }
 }
@@ -533,22 +574,11 @@ section.highlight {
 
 @media only screen and (min-width : 1201px) {
 
-
-    .banner {
-        padding-top: 200px;
-    }
     .banner h1 {
     	font-size: 80px;
     }
-    .banner p {
-        font-size: 40px;
-    }
     .col-focus {
         margin-top: 0;
-    }
-
-    footer nav ul li {
-        font-size: 22px;
     }
 }
 
@@ -570,14 +600,33 @@ section.highlight {
 /* === MOBILE and TABLETS ====== SMALL ================= */
 
 @media only screen and (max-width : 768px) {
+    .banner video {
+        display: none;
+    }
+    .banner {
+        background: black;
+        margin: 0;
+        padding: 100px 0 1em;
+    }
     div[class*='col-'] img {
         display: none;
+    }
+    .row {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .highlight, .ourteam .content {
+        padding-top: 1em;
+        padding-bottom: 1em;
     }
     body {
         font-size: 18px;
     }
     h1 {
-    	font-size: 45px;
+    	font-size: 30px;
+    }
+    .practiceareas .text-center {
+        text-align: left;
     }
 }
 

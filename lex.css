@@ -56,12 +56,6 @@ a, a:hover {
     text-decoration: none;
     transition-duration: 0.5s;
 }
-p a {
-    border-bottom: 1px solid #009999;
-}
-p a:hover {
-    border-bottom: none;
-}
 nav a, .dropdown-menu > li > a {
     font-weight: bold;
 }
@@ -69,7 +63,7 @@ nav a, .dropdown-menu > li > a {
 /* -- LINK COLOR -----------------------------------------------------  */
 
 /* nav color */
-footer nav a, p a,
+footer nav a, p a, p a:focus,
 .navbar .navbar-nav a, .navbar .navbar-nav > li > a, .navbar .dropdown-menu > li > a {
     color: #009999;
 }
@@ -81,11 +75,13 @@ a:hover,
     color: #94c20a;
     color: #99cc00;
 }
+p a:hover {
+    border-bottom: 1px solid #99cc00;
+}
 
 /*-- _HEADINGS and COPY -------------------------------------------- */
 
 h1, h2, h3 {
-	color: #00b386;
 	color: #00b32d;
     font-weight: 200;
     margin: 0 0 20px;
@@ -117,7 +113,7 @@ p {
     padding-left: 20px;
     background: url("assets/iconmonstr-arrow-29.svg") no-repeat left .4em;
 }
-.chevron p {
+.chevron p, .list-unstyled p {
     margin-bottom: 3px;
 }
 
@@ -145,10 +141,10 @@ footer nav ul {
     color: #888;
 }
 
-.container.highlight, .container-fluid.highlight {
-    background: #2d3939;
+.highlight {
+    background: rgba(45, 57, 57, 1);
     color: rgba(255, 255, 255, 0.85);
-    margin-top: 1em;
+    border-radius: 6px;
 }
 .highlight h2 {
 	color: #ace600;
@@ -173,7 +169,11 @@ footer nav ul {
     background: #739900;
     color: White;
 }
-
+.navbar .navbar-right > li > a:last-child, .navbar .highlight > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus {
+    background: #2d3939;
+    color: White !important;
+    text-shadow: none;
+}
 /*-- _BANNER ----------------------------------- */
 
 .banner {
@@ -253,12 +253,13 @@ footer {
     color: gray;
     border-top: 1px solid rgba(198, 210, 210, 0.3);
     background: rgba(198, 210, 210, 0.1);
-    margin-top: 4em;
+    margin-top: 5em;
 }
 footer .copyright {
     background: rgba(198, 210, 210, 0.5);
     padding-top: 1em;
     font-size: 12px;
+    border-radius: 7px 7px 0 0;
 }
 footer .copyright a {
     border: none;
@@ -282,13 +283,10 @@ footer .copyright a {
 
 
 
-/* MEDIUM to LARGE */
+/* MEDIUM only  */
 @media only screen and (min-width: 769px) and (max-width : 992px) {
     .nav > li > a {
         padding: 15px 8px;
-    }
-    .nav > li > a.dropdown-toggle {
-        padding: 15px 0 15px 8px;
     }
     .banner.home {
         padding-top: 150px;
@@ -296,10 +294,10 @@ footer .copyright a {
 }
 /* MEDIUM to LARGE */
 @media only screen and (min-width: 769px) and (max-width : 1199px) {
-    ul.halfWidth-sm {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
+    ul.third-width-md {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
     }
 }
 
@@ -310,7 +308,8 @@ footer .copyright a {
     body {
         font-size: 18px;
     }
-    .highlight .row {
+    .highlight {
+        margin-top: 3em;
     }
     .highlight h3 {
         padding-top: 20px;
@@ -318,10 +317,36 @@ footer .copyright a {
     .highlight .image {
         margin: 0 -15px;
     }
+    .gutter {
+        padding: 0 10px;
+    }
+    ul.half-width {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+    ul.third-width {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+    span.location {
+        font-size: 0.9em;
+        margin: -10px 0 0 10px;
+        color: #bbb;
+    }
+    .highlight div[class*='col-'] {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .highlight .image {
+        margin: 0 -25px;
+    }
+
+    /*
     .no-gutter .row .col-sm-6 {
         padding: 0;
     }
-    /*
     .col-lg-12 h2 {
         margin-top: -140px;
         margin-bottom: 20px;
@@ -341,18 +366,15 @@ footer .copyright a {
     }
     */
 
-    .focus .row {
-        background: rgba(255, 128, 0, 0);
-        background: rgba(0, 179, 45, 0);
-        background: rgba(0, 128, 128, 0);
+    .row.focus {
+        background: rgba(45, 57, 57, 0.05);
+        border-radius: 7px;
     }
     .col-focus-1 {
-        background: rgba(255, 128, 0, 0);
-        background: rgba(0, 128, 128, 0.03);
-        background: rgba(0, 179, 45, 0.07);
+        background: rgba(45, 57, 57, 0.05);
     }
     .col-focus-2 {
-        background: rgba(0, 179, 45, 0.07);
+        background: rgba(45, 57, 57, 0.05);
     }
 
     .practiceareas img {
@@ -374,8 +396,8 @@ footer .copyright a {
         box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
     }
     .ourteam .content {
-        margin-top: 1em;
-        padding-top: 1em;
+        margin-top: 2em;
+        padding-top: 2em;
         border-top: 1px solid rgba(0, 0, 0, 0.15);
     }
     .ourteam .content:first-child {
@@ -447,11 +469,10 @@ footer .copyright a {
         white-space: nowrap;
         border: 1px solid white;
         border-radius: 10px;
-        color: #ff8000;
+        color: rgba(255, 128, 0, 1); /* ff8000 */
     }
     .subnav a:hover {
-        border-color: rgba(255, 128, 0, 0.5);
-        background: rgba(255, 128, 0, 0.02);
+        border-color: rgba(255, 128, 0, 1);
     }
     /* --- _FONT-SIZES --- MEDIUM or larger --- */
 
@@ -525,13 +546,6 @@ footer .copyright a {
     }
     ul.chevron li {
         background-size: 15px 15px;
-    }
-    .highlight div[class*='col-'] {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-    .highlight .image {
-        margin: 0 -25px;
     }
 
     /* --- FONT-SIZE --- LARGE or larger --- */
@@ -619,6 +633,9 @@ footer .copyright a {
         padding-top: 1em;
         padding-bottom: 1em;
     }
+    .highlight {
+        margin-top: 1em;
+    }
     body {
         font-size: 18px;
     }
@@ -626,6 +643,9 @@ footer .copyright a {
     	font-size: 30px;
     }
     .practiceareas .text-center {
+        text-align: left;
+    }
+    .text-center {
         text-align: left;
     }
 }

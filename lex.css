@@ -24,7 +24,7 @@ html, body {
 body {
     /* padding-top: 50px; */
     padding-bottom: 20px;
-    color: #888;
+    color: #666;
     background: White;
     font-smooth: never;
 }
@@ -67,6 +67,10 @@ footer nav a, p a, p a:focus,
 .navbar .navbar-nav a, .navbar .navbar-nav > li > a, .navbar .dropdown-menu > li > a {
     color: #009999;
 }
+.black-links a {
+    color: inherit;
+    border-bottom: 1px solid #999;
+}
 /* nav hover color */
 a:hover,
 .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar-nav .dropdown:hover > a, .navbar-nav .dropdown a:hover,
@@ -103,6 +107,9 @@ h4 {
 }
 p {
     line-height: 1.5;
+}
+c {
+    white-space: nowrap;
 }
 .chevron {
     list-style: none;
@@ -252,14 +259,14 @@ footer {
     font-size: 16px;
     color: gray;
     border-top: 1px solid rgba(198, 210, 210, 0.3);
-    background: rgba(198, 210, 210, 0.1);
     margin-top: 5em;
+    box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
 }
 footer .copyright {
-    background: rgba(198, 210, 210, 0.5);
+    background: rgba(198, 210, 210, 0.2);
     padding-top: 1em;
     font-size: 12px;
-    border-radius: 7px 7px 0 0;
+    border-radius: 6px 6px 0 0;
 }
 footer .copyright a {
     border: none;
@@ -314,9 +321,18 @@ footer .copyright a {
     .highlight h3 {
         padding-top: 20px;
     }
-    .highlight .image {
-        margin: 0 -15px;
+    .highlight div[class*='col-'] {
+        padding-left: 25px;
+        padding-right: 25px;
     }
+    .highlight .image {
+        margin: 0 -25px;
+    }
+    .address p, .ourteam .description  {
+        font-size: 17px;
+        margin-bottom: 6px;
+    }
+
     .gutter {
         padding: 0 10px;
     }
@@ -324,6 +340,7 @@ footer .copyright a {
         -webkit-column-count: 2;
         -moz-column-count: 2;
         column-count: 2;
+        column-gap: 0;
     }
     ul.third-width {
         -webkit-column-count: 3;
@@ -331,16 +348,9 @@ footer .copyright a {
         column-count: 3;
     }
     span.location {
-        font-size: 0.9em;
+        font-size: smaller;
         margin: -10px 0 0 10px;
         color: #bbb;
-    }
-    .highlight div[class*='col-'] {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-    .highlight .image {
-        margin: 0 -25px;
     }
 
     /*
@@ -366,15 +376,9 @@ footer .copyright a {
     }
     */
 
-    .row.focus {
+    .focus {
         background: rgba(45, 57, 57, 0.05);
-        border-radius: 7px;
-    }
-    .col-focus-1 {
-        background: rgba(45, 57, 57, 0.05);
-    }
-    .col-focus-2 {
-        background: rgba(45, 57, 57, 0.05);
+        border-radius: 6px;
     }
 
     .practiceareas img {
@@ -405,13 +409,17 @@ footer .copyright a {
         padding-top: 0;
         border-top: 0;
     }
+    .ourteam .description p {
+        margin-bottom: 9px;
+        line-height: 1.3;
+    }
 
     /* --- MAINNAV --- MEDIUM or larger --- */
 
     .navbar {
         border: 0;
         background: rgba(255,255,255,0.95);
-        box-shadow: 0 0 6px 6px rgba(0,0,0,.3);
+        box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
         background-position: center bottom;
         transition-duration: 1s;
     }
@@ -463,13 +471,16 @@ footer .copyright a {
         line-height: 2;
     }
     .subnav a {
-        padding: 0 4px;
+        padding: 0 6px;
         word-break: keep-all;
         word-spacing: -4px;
         white-space: nowrap;
         border: 1px solid white;
-        border-radius: 10px;
+        border-radius: 5px;
+        line-height: 1;
         color: rgba(255, 128, 0, 1); /* ff8000 */
+
+        transform: translate(-50%, -50%);
     }
     .subnav a:hover {
         border-color: rgba(255, 128, 0, 1);
@@ -492,7 +503,7 @@ footer .copyright a {
     	font-size: 60px;
     }
     .intro {
-        padding: 3em 0 2em;
+        padding: 3em 0 1em;
     }
     .intro p {
         font-size: 45px;
@@ -565,9 +576,6 @@ footer .copyright a {
     .banner.home h1 {
     	font-size: 65px;
     }
-    .address p, .ourteam .description  {
-        font-size: 17px;
-    }
 
     /* --- FOOTER --- LARGE or larger --- */
 
@@ -590,9 +598,6 @@ footer .copyright a {
 
     .banner h1 {
     	font-size: 80px;
-    }
-    .col-focus {
-        margin-top: 0;
     }
 }
 

@@ -9,12 +9,6 @@ h1,h2,h3,h4,h5,h6, .navbar, footer nav {
     font-family: 'Titillium Web', sans-serif;
 }
 
-/* -- _NAVIGATION INHERIT ---------------------0--------------- */
-
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    color: inherit;
-    background: inherit;
-}
 
 /* --- _SECTIONS ---------------------------- */
 
@@ -48,11 +42,24 @@ footer .row {
     margin-bottom: 0;
     margin-top: 0;
 }
+/* --- --- --- */
+.breadcrumb {
+    font-weight: bold;
+    background: transparent;
+    font-size: 15px;
+    border-radius: 0;
+}
+.breadcrumb > li + li:before {
+    content: "\203A";
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 22px;
+}
 
 /*-- _LINKS ---------------------------------------------------- */
 
 a, a:hover {
-    color: inherit;
+    color: 009999;
     text-decoration: none;
     transition-duration: 0.5s;
 }
@@ -72,7 +79,7 @@ footer nav a, p a, p a:focus,
     border-bottom: 1px solid #999;
 }
 /* nav hover color */
-a:hover,
+a:hover, .breadcrumb a:hover, .breadcrumb li.active,
 .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar-nav .dropdown:hover > a, .navbar-nav .dropdown a:hover,
 .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
     color: #ace600;
@@ -90,14 +97,17 @@ h1, h2, h3 {
     font-weight: 200;
     margin: 0 0 20px;
 }
-.ourteam .profile h2 span {
+.ourteam .profile-title h2 span, .profile-list h3 span {
     display: block;
-    font-size: 0.32em;
+    font-size: 18px;
     color: #777;
-    letter-spacing: 2px;
-    font-weight: bold;
-    padding-left: 5px;
+    letter-spacing: 1px;
+    padding: 5px;
 }
+.profile-list .row .col-sm-3:nth-child(6) {
+    clear: left;
+}
+
 h3 {
     color: #ff8000;
     color: #009999;
@@ -132,26 +142,12 @@ c {
 footer nav ul {
     list-style:none;
 }
-/* -- SPECIAL SECTIONS -------------------------------------- */
 
-.intro {
-    color: #00b3b3;
-    color: #94c20a;
-    color: #ffbf00;
-    color: #a32949;
-    color: #0a94c2;
-    color: #940ac2;
-    color: #f9bc06;
-    color: #f9bc06;
-    color: #ff8000;
-    color: #009999;
-    color: #888;
-}
 
+/* -- _highlight -------------------------------------- */
 .highlight {
     background: rgba(45, 57, 57, 1);
     color: rgba(255, 255, 255, 0.85);
-    border-radius: 6px;
 }
 .highlight h2 {
 	color: #ace600;
@@ -160,41 +156,36 @@ footer nav ul {
 .highlight h3 {
 	color: #ffd966;
 }
-.highlight img {
-}
-
 
 
 /* -- _BRAND _LOGO --------------------------------------------- */
-
-.navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover {
+.navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
+ .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus {
     background: #94c20a;
     color: White;
     text-shadow: none;
 }
-.navbar .navbar-brand:hover {
+.navbar.noscroll .navbar-brand:hover, .navbar.noscroll .navbar-right > li > a:last-child:hover {
     background: #739900;
     color: White;
-}
-.navbar .navbar-right > li > a:last-child, .navbar .highlight > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus {
-    background: #2d3939;
-    color: White !important;
     text-shadow: none;
 }
-/*-- _BANNER ----------------------------------- */
 
+
+/*-- _BANNER ----------------------------------- */
 .banner {
     position: relative;
     overflow: hidden;
     padding-top: 175px;
     padding-bottom: 100px;
+    background: transparent;
     background: rgba(0, 200, 200, 0.5); /* homeVideo6HD */
     background: rgba(0, 0, 100, 0.4); /* homeVideo9HD */
     background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
     background: rgba(50, 100, 50, 0.5); /* homeVideoA */
     background: rgba(30, 100, 30, 0.7); /* homeVideoB */
-    background: rgba(0, 0, 0, 0.3); /* homeVideoC */
-    background: transparent;
+    background: rgba(50, 10, 0, 0.3); /* homeVideoC */
+
 	color: White;
     text-align: center;
 }
@@ -214,7 +205,7 @@ footer nav ul {
     background-size: cover;
 }
 
-.banner.the_firm, .banner.practice_areas, .banner.our_team, .banner.links_events, .banner.contact {
+.banner.the_firm, .banner.practice_areas, .banner.banner-ourteam, .banner.links_events, .banner.contact {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-size: cover;
@@ -231,7 +222,7 @@ footer nav ul {
     background-image: url("assets/BG-practice_areas.png");
     background-position: center -200px;
 }
-.banner.our_team {
+.banner.banner-ourteam {
     background-image: url("assets/BG-our_team.jpeg");
     background-position: center -100px;
 }
@@ -253,33 +244,23 @@ footer nav ul {
 }
 */
 
-/* --- FOOTER --- MEDIUM or larger --- */
-
+/* --- _FOOTER ---------------------------------- */
 footer {
-    font-size: 16px;
     color: gray;
     border-top: 1px solid rgba(198, 210, 210, 0.3);
-    margin-top: 5em;
-    box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
 }
 footer .copyright {
     background: rgba(198, 210, 210, 0.2);
     padding-top: 1em;
     font-size: 12px;
-    border-radius: 6px 6px 0 0;
+    text-align: center;
 }
 footer .copyright a {
     border: none;
 }
 
 
-
-
-
-
-
-
-/* ------------------------------------------------------------------ */
+/* --- DONE ------ DONE ------ DONE --------------- */
 
 
 
@@ -310,32 +291,124 @@ footer .copyright a {
 
 
 
-/* MEDIUM or larger = ALL Desktops */
+
+
+
+/* ========== MEDIUM or larger = ALL Desktops ============= */
 @media only screen and (min-width: 769px) {
+
+
+    /* --- _FONT-SIZES ------------ MEDIUM or larger --- */
     body {
         font-size: 18px;
     }
+    .navbar, .subnav {
+        font-size: 15px;
+    }
+    .navbar .navbar-brand {
+        font-size: 17px;
+    }
+    /* --- --- --- */
+    .banner p {
+        font-size: 40px;
+        line-height: 1;
+        /* text-shadow: 1px 1px 1px rgba(0,0,0,0.5); */
+    }
+    .banner h1 {
+    	font-size: 60px;
+    }
+    .intro {
+        padding: 3em 0 1em;
+    }
+    .intro p {
+        font-size: 45px;
+        line-height: 1;
+    }
+    /* --- --- --- */
+    h2 {
+    	font-size: 55px;
+    }
+    .home h2 {
+    	font-size: 38px;
+    }
+    .thefirm h2 {
+    	font-size: 45px;
+    }
+    .ourteam .profile-title h2 {
+    	font-size: 65px;
+    	margin-top: 7rem;
+    }
+    /* --- --- --- */
+    h3 {
+    	font-size: 28px;
+    }
+    .profile-list h3 {
+    	font-size: 23px;
+    }
+    /* --- --- --- */
+    h4 {
+    	font-size: 20px;
+    }
+    .address p {
+        font-size: 15px;
+    }
+    /* --- --- --- */
+    .address p, .ourteam .description  {
+        font-size: 17px;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+    span.location {
+        font-size: smaller;
+        margin: -10px 0 0 10px;
+        color: #bbb;
+    }
+    ul.chevron li {
+        background-size: 12px 12px;
+    }
+
+
+
+    /* --- _CONTAINER ------------ MEDIUM or larger --- */
+    .gutter {
+        padding: 0 10px;
+    }
+    /* --- --- --- */
+    .focus {
+        background: rgba(45, 57, 57, 0.05);
+        border-radius: 6px;
+    }
+    /* --- --- --- */
     .highlight {
         margin-top: 3em;
+        border-radius: 6px;
     }
-    .highlight h3 {
+    .highlight h3, .profile-list h3 {
         padding-top: 20px;
     }
     .highlight div[class*='col-'] {
         padding-left: 25px;
         padding-right: 25px;
     }
-    .highlight .image {
-        margin: 0 -25px;
+    /* --- --- --- */
+    .image-streach {
+        margin: 0 -15px;
+        margin-bottom: 25px;
+        position: relative;
+        float: left;
     }
-    .address p, .ourteam .description  {
-        font-size: 17px;
-        margin-bottom: 6px;
+    .image-streach:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		box-shadow: inset 0 0 60px rgba(80,80,0,0.9);
+	}
+    .image-streach img {
     }
-
-    .gutter {
-        padding: 0 10px;
-    }
+    /* --- --- --- */
     ul.half-width {
         -webkit-column-count: 2;
         -moz-column-count: 2;
@@ -347,40 +420,14 @@ footer .copyright a {
         -moz-column-count: 3;
         column-count: 3;
     }
-    span.location {
-        font-size: smaller;
-        margin: -10px 0 0 10px;
-        color: #bbb;
-    }
 
-    /*
-    .no-gutter .row .col-sm-6 {
-        padding: 0;
-    }
-    .col-lg-12 h2 {
-        margin-top: -140px;
-        margin-bottom: 20px;
-        font-size: 50px;
-        height: 100px;
-        color: White;
-        background-color: rgba(0, 0, 0, 0.4);
-        padding: 15px  15px 25px  15px;
-    }
-    .first .col-lg-12 h2 {
-        margin-top: 0;
-        margin-bottom: 20px;
-        height: auto;
-        color: inherit;
-        background-color: transparent;
-        padding: 0;
-    }
-    */
 
-    .focus {
-        background: rgba(45, 57, 57, 0.05);
-        border-radius: 6px;
-    }
 
+
+    /* --- _PAGES ----------------- MEDIUM or larger --- */
+
+
+    /* --- _PRACTICEAREAS --------- MEDIUM or larger --- */
     .practiceareas img {
         padding-top: 2em;
         margin-top: 1em;
@@ -389,14 +436,17 @@ footer .copyright a {
     .practiceareas h2 {
         text-align: center;
     }
-    .ourteam .profile {
+
+
+    /* --- _OURTEAM ------------- MEDIUM or larger --- */
+    .ourteam .profile-title {
         margin-top: 1em;
         border-top: 2em solid white;
         padding: 0.5em 0;
         background: rgba(0, 0, 0, 0.03);
         box-shadow: inset 0 -100px 150px -70px rgba(0,0,0,.06);
     }
-    .ourteam .profile img {
+    .ourteam .profile-title img {
         box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
     }
     .ourteam .content {
@@ -410,12 +460,14 @@ footer .copyright a {
         border-top: 0;
     }
     .ourteam .description p {
-        margin-bottom: 9px;
-        line-height: 1.3;
     }
 
-    /* --- MAINNAV --- MEDIUM or larger --- */
 
+    /* --- MAINNAV --- MEDIUM or larger --- */
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+        color: inherit;
+        background: inherit;
+    }
     .navbar {
         border: 0;
         background: rgba(255,255,255,0.95);
@@ -430,7 +482,6 @@ footer .copyright a {
         background: transparent;
         box-shadow: none;
     }
-
     .dropdown {
         cursor: pointer;
     }
@@ -453,19 +504,15 @@ footer .copyright a {
         background: transparent;
         box-shadow: none;
     }
+    .breadcrumb a,
     .noscroll a, .navbar.noscroll .navbar-nav > li > a, .noscroll .dropdown-menu > li > a {
         color: white;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     }
+    .breadcrumb a:hover, .breadcrumb > li + li:before,
     .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li > a:focus, .noscroll .dropdown-menu > li > a:hover {
         color: #ace600;
     }
-    .noscroll .navbar-collapse a {
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-    }
-    ul.chevron li {
-        background-size: 12px 12px;
-    }
-
     .subnav li {
         padding: 0;
         line-height: 2;
@@ -479,62 +526,27 @@ footer .copyright a {
         border-radius: 5px;
         line-height: 1;
         color: rgba(255, 128, 0, 1); /* ff8000 */
-
-        transform: translate(-50%, -50%);
     }
     .subnav a:hover {
         border-color: rgba(255, 128, 0, 1);
     }
-    /* --- _FONT-SIZES --- MEDIUM or larger --- */
-
-    .navbar, .subnav {
-        font-size: 15px;
-    }
-    .navbar .navbar-brand {
-        font-size: 17px;
-    }
-
-    .banner p {
-        font-size: 40px;
-        line-height: 1;
-        /* text-shadow: 1px 1px 1px rgba(0,0,0,0.5); */
-    }
-    .banner h1 {
-    	font-size: 60px;
-    }
-    .intro {
-        padding: 3em 0 1em;
-    }
-    .intro p {
-        font-size: 45px;
-        line-height: 1;
-    }
-
-    h2 {
-    	font-size: 55px;
-    }
-    .home h2 {
-    	font-size: 38px;
-    }
-    .thefirm h2 {
-    	font-size: 45px;
-    }
-    .ourteam .profile h2 {
-    	font-size: 65px;
-    	margin-top: 7rem;
-    }
-    h3 {
-    	font-size: 28px;
-    }
-    h4 {
-    	font-size: 20px;
-    }
-    .address p {
-        font-size: 15px;
+    /* --- --- --- */
+    .breadcrumb {
+        color: White;
+        margin-bottom: 0;
+        margin-top: -50px;
+        position: relative;
     }
 
     /* --- FOOTER --- MEDIUM or larger --- */
-
+    footer {
+        font-size: 16px;
+        margin-top: 5em;
+        box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
+    }
+    footer .copyright {
+        border-radius: 6px 6px 0 0;
+    }
     footer nav ul li {
         padding: 2px 0;
     }
@@ -563,7 +575,7 @@ footer .copyright a {
 
     body {
     }
-    .navbar, .subnav {
+    .navbar, .subnav, .breadcrumb {
         font-size: 18px;
     }
     .navbar .navbar-brand {
@@ -619,16 +631,19 @@ footer .copyright a {
 /* === MOBILE and TABLETS ====== SMALL ================= */
 
 @media only screen and (max-width : 768px) {
-    .banner video {
+    .banner video, div[class*='col-'] img {
         display: none;
+    }
+    div[class*='col-'] .image.mobile img {
+        display: inline;
+    }
+    .image.mobile {
+        padding-bottom: 20px;
     }
     .banner {
         background: black;
         margin: 0;
         padding: 100px 0 1em;
-    }
-    div[class*='col-'] img {
-        display: none;
     }
     .row {
         margin-bottom: 0;
@@ -652,6 +667,15 @@ footer .copyright a {
     }
     .text-center {
         text-align: left;
+    }
+    .profile-list .text-center, .profile-list {
+        text-align: center;
+    }
+    /* --- --- --- */
+    .focus {
+        background: rgba(45, 57, 57, 0.05);
+        text-align: center;
+        margin-bottom: 1em;
     }
 }
 
@@ -729,6 +753,14 @@ daf1e6
     background: #b8d65c;
     background: #ccff99;
     background: #d9f4be;
+
+        background: rgba(198, 210, 210, 0.9);
+
+
+        transform: translate(-50%, -50%);
+
+
+
 
 
 */

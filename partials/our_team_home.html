@@ -1,0 +1,39 @@
+<header>
+    <div class="banner banner-ourteam">
+        <div class="shade">
+            <div class="container">
+                <h1>Our Team</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <ol class="breadcrumb container">
+        <li><a href="#/">Home</a></li>
+        <li class="active">Our Team</li>
+    </ol>
+
+<section class="ourteam">
+    <header class="container intro">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 text-center">
+                <p>We represent a spectrum of domestic and foreign businesses, and provide a wealth of skills enabling elaboration of comprehensive strategies for the legal matters arising from their corporate and commercial operations.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ng-repeat Directive | nestling -->
+	<div class="container profile-list" ng-controller="teamHomeCtrl">
+		<div class="row" ng-repeat="each in countries">
+		    <div class="col-sm-12 text-center">
+		    	<h2>Our Team {{ each.countryName }}</h2>
+		    </div>
+		    <div class="col-sm-3 text-center" ng-repeat="each in each.profiles">
+				<div class="image mobile">
+				    <a href="{{ each.profileURL }}"><img class="img-circle" width="225" height="225" src="/assets/profiles/{{ each.profileURL }}.{{ each.profileImgExt }}"></a>
+				</div>
+			    <h3><a href="{{ each.profileURL }}"> {{ each.profileName }} </a> <span> {{ each.profileTitle }} </span></h3>
+    		</div>
+		</div>
+    </div>
+</section>

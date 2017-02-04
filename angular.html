@@ -1,0 +1,203 @@
+<!doctype html>
+
+<html lang="en" ng-app="Portfolio">
+<head>
+    <meta charset="utf-8">
+    <title>Alex Lais Portfolio</title>
+    <meta name="description" content="Alex Lais Portfolio">
+    <meta name="author" content="Alex Lais">
+    <link rel="stylesheet" href="screen.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon2.ico"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+<body ng-controller="myController">
+    <div class="header">
+        <ul class="mainNav item00">
+          	<li><a href="index.php"><img alt="previous" src="images/previous.gif" /></a></li>
+            <li ng-include="'includes/nav.html'"></li>
+            <li><a href="01.php"><img alt="next" src="images/next.gif"></a></li>
+        </ul>
+        <h1>Angular Template</h1>
+        <h2>Angular Template</h2>
+    </div>
+
+	<!-- ANGULAR NOGOOD HERE -->
+
+<!-- Vendor: Javascripts -->
+<script src="assets/vendor/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap.min.js"></script>
+
+<!-- Vendor: Angular, followed by our custom Javascripts -->
+<script src="assets/vendor/angular.min.js"></script>
+<script src="assets/vendor/angular-route.min.js"></script>
+
+    <script>
+     // var myApp = angular.module("myModule", []);
+
+     // var myController = function ($scope) {
+     // 	$scope.message = "test";
+
+     // 	var employee = {
+     // 		firstName: "David",
+     // 		lastName: "Hass"
+     // 	};
+     // 	$scope.employee = employee;
+     // };
+
+     // job of controller is to build a module for the view to display
+     // myApp.controller("myController", myController);
+
+
+
+     var myApp = angular
+     	.module("Portfolio", [])
+     	.controller("myController", function ($scope) {
+     		//5, 6
+     		$scope.message = "2-way data binding";
+
+     		//7
+	     	var employee = {
+	     		firstName: "David",
+	     		lastName: "Hass",
+	     		position: 1,
+	     		image: "http://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg"
+	     	};
+	     	$scope.employee = employee;
+
+     		//8
+	     	var employees = [
+	     		{ firstName: "David", lastName: "Hass", position: 1, image: "http://kennyki.github.io/angular-thumbnail/img/pic_angular.jpg" },
+	     		{ firstName: "Mary", lastName: "Avocado", position: 2, image: "http://kennyki.github.io/angular-thumbnail/img/pic_angular.jpg" }
+	     	];
+	     	$scope.employees = employees;
+
+     		//09
+	     	var countries = [
+	     		{ countryName: "USA", cities: [
+	     			{ cityName: "New York", position: 1 },
+	     			{ cityName: "Los Angeles", position: 2 },
+	     			{ cityName: "Miami", position: 3 }
+	     		]},
+	     		{ countryName: "Mexico", cities: [
+	     			{ cityName: "Mexico City", position: 4 },
+	     			{ cityName: "Guadalajara", position: 5 }
+	     		]}
+	     	];
+	     	$scope.countries = countries;
+
+	     	//10
+	     	var pool = [
+	     		{ name: "David", likes: 0, dislikes: 0 },
+	     		{ name: "Mary", likes: 0, dislikes: 0 }
+	     	];
+	     	$scope.pool = pool;
+
+	     	$scope.likesFunction = function (pool) {
+	     		pool.likes++;
+	     	}
+
+	     	$scope.dislikesFunction = function (pool) {
+	     		pool.dislikes++;
+	     	}
+
+	     	//11
+
+	     });
+
+
+    </script>
+
+
+
+    <div class="body">
+    	<div class="page">
+   			<h2>01</h2>
+			<p>10 + 20 = {{ 10 + 20 }}</p>
+
+			<h2>02</h2>
+			<p>{{ 10 == 20 }}</p>
+
+			<h2>03</h2>
+			<p>{{ {name: 'David', age: '33'}.name }}</p>
+
+			<h2>04</h2>
+			<p>{{ ['David', 'Pam', 'Sara'][2] }}</p>
+
+			<h2>05</h2>
+			<p>{{ message }}</p>
+
+			<h2>06: two way data-binding</h2>
+				<input type="text" ng-model="message" />
+
+			    <select ng-model="message">
+			      <option value="option-1">Option 1</option>
+			      <option value="option-2">Option 2</option>
+				</select>
+
+			     <textarea ng-model="message" rows="4" cols="50"></textarea>
+
+			<h2>07</h2>
+			<p>first name: {{ employee.firstName }}</p>
+			<p>last name: {{ employee.lastName }}</p>
+			<p>{{ employee.firstName + ' ' + employee.lastName + ' eyes' }} <img ng-src="{{ employee.image }}" alt="{{ employee.firstName + ' ' + employee.lastName + ' eyes' }}" width="200px" height="200px"/></p>
+
+			<h2>08: ng-repeat Directive</h2>
+			<ul ng-repeat="each in employees">
+				<li>{{ each.firstName }}</li>
+				<li>{{ each.lastName }}</li>
+				<li>{{ each.position }}</li>
+				<li><img ng-src="{{ each.image }}" width="200px" height="200px"/></li>
+			</ul>
+
+			<h2>09: ng-repeat Directive nestling</h2>
+    		<ul ng-repeat="each in countries">
+				<li>{{ each.countryName }} Index {{ $index }}
+					<ul ng-repeat="each in each.cities">
+						<li>{{ each.cityName }} Country Index: {{ $parent.$index }} Index {{ $index }}</li>
+					</ul>
+				</li>
+			</ul>
+
+    		<ul ng-repeat="eachCountry in countries">
+				<li>{{ eachCountry.countryName }} Index {{ $index }}
+					<ul ng-repeat="eachCity in eachCountry.cities">
+						<li>{{ eachCity.cityName }} Country Index: {{ $parent.$index }} Index {{ $index }}</li>
+					</ul>
+				</li>
+			</ul>
+
+			<h2>10: Handeling Events</h2>
+    		<ul ng-repeat="each in pool">
+				<li>{{ each.name }}
+					<ul>
+						<li>Howv many likes: {{ each.likes }} </li>
+						<li>How many dislikes: {{ each.dislikes }} </li>
+						<li>
+							<input type="button" value="Like" ng-click="likesFunction(each)"/>
+							<input type="button" value="Dislike" ng-click="dislikesFunction(each)"/>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+			<h2>11: Filters</h2>
+    		<ul ng-repeat="each in pool">
+				<li>{{ each.name }}
+					<ul>
+						<li>Howv many likes: {{ each.likes }} </li>
+						<li>How many dislikes: {{ each.dislikes }} </li>
+						<li>
+							<input type="button" value="Like" ng-click="likesFunction(each)"/>
+							<input type="button" value="Dislike" ng-click="dislikesFunction(each)"/>
+						</li>
+					</ul>
+				</li>
+			</ul>
+    	</div>
+    	<div class="rail">
+    		<p><b>ANGULAR</b></p>
+    	</div>
+	</div>
+</body>
+</html>
+</html>

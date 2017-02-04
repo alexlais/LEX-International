@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="WebApp" class="no-js"><!--<![endif]-->
+<head>
+    <!-- Meta-Information -->
+    <title>LEX Int'l Law Firm</title>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="LEX International Law Firm">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300|Titillium+Web:200">
+
+    <!-- Our Website CSS Styles -->
+    <link rel="stylesheet" href="lex.css">
+
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body ng-app="WebApp">
+<!--[if lt IE 7]>
+<p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div ng-controller="myController">
+    <!-- Our Website Content Goes Here -->
+    <div ng-include='"header.html"'></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Vendor: Javascripts -->
+<script src="assets/vendor/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap.min.js"></script>
+
+<!-- Vendor: Angular, followed by our custom Javascripts -->
+<script src="assets/vendor/angular.min.js"></script>
+<script src="assets/vendor/angular-route.min.js"></script>
+
+
+
+   			<h2>01</h2>
+			<p>10 + 20 = {{ 10 + 20 }}</p>
+
+			<h2>02</h2>
+			<p>{{ 10 == 20 }}</p>
+
+			<h2>03</h2>
+			<p>{{ {name: 'David', age: '33'}.name }}</p>
+
+			<h2>04</h2>
+			<p>{{ ['David', 'Pam', 'Sara'][2] }}</p>
+
+			<h2>05</h2>
+			<p>{{ message }}</p>
+
+			<h2>06: two way data-binding</h2>
+				<input type="text" ng-model="message" />
+
+			    <select ng-model="message">
+			      <option value="option-1">Option 1</option>
+			      <option value="option-2">Option 2</option>
+				</select>
+
+			     <textarea ng-model="message" rows="4" cols="50"></textarea>
+
+			<h2>07</h2>
+			<p>first name: {{ employee.firstName }}</p>
+			<p>last name: {{ employee.lastName }}</p>
+			<p>{{ employee.firstName + ' ' + employee.lastName + ' eyes' }} <img ng-src="{{ employee.image }}" alt="{{ employee.firstName + ' ' + employee.lastName + ' eyes' }}" width="200px" height="200px"/></p>
+
+			<h2>08: ng-repeat Directive</h2>
+			<ul ng-repeat="each in employees">
+				<li>{{ each.firstName }}</li>
+				<li>{{ each.lastName }}</li>
+				<li>{{ each.position }}</li>
+				<li><img ng-src="{{ each.image }}" width="200px" height="200px"/></li>
+			</ul>
+
+			<h2>09: ng-repeat Directive nestling</h2>
+    		<ul ng-repeat="each in countries">
+				<li>{{ each.countryName }} Index {{ $index }}
+					<ul ng-repeat="each in each.cities">
+						<li>{{ each.cityName }} Country Index: {{ $parent.$index }} Index {{ $index }}</li>
+					</ul>
+				</li>
+			</ul>
+
+    		<ul ng-repeat="eachCountry in countries">
+				<li>{{ eachCountry.countryName }} Index {{ $index }}
+					<ul ng-repeat="eachCity in eachCountry.cities">
+						<li>{{ eachCity.cityName }} Country Index: {{ $parent.$index }} Index {{ $index }}</li>
+					</ul>
+				</li>
+			</ul>
+
+			<h2>10: Handeling Events</h2>
+    		<ul ng-repeat="each in pool">
+				<li>{{ each.name }}
+					<ul>
+						<li>Howv many likes: {{ each.likes }} </li>
+						<li>How many dislikes: {{ each.dislikes }} </li>
+						<li>
+							<input type="button" value="Like" ng-click="likesFunction(each)"/>
+							<input type="button" value="Dislike" ng-click="dislikesFunction(each)"/>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+			<h2>11: Filters</h2>
+    		<ul ng-repeat="each in pool">
+				<li>{{ each.name }}
+					<ul>
+						<li>Howv many likes: {{ each.likes }} </li>
+						<li>How many dislikes: {{ each.dislikes }} </li>
+						<li>
+							<input type="button" value="Like" ng-click="likesFunction(each)"/>
+							<input type="button" value="Dislike" ng-click="dislikesFunction(each)"/>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div ng-view></div>
+<div ng-include='"footer.html"'></div>
+
+<!-- Vendor: Javascripts -->
+<script src="assets/vendor/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap.min.js"></script>
+
+<!-- Vendor: Angular, followed by our custom Javascripts -->
+<script src="assets/vendor/angular.min.js"></script>
+<script src="assets/vendor/angular-route.min.js"></script>
+
+<script src="lex.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
